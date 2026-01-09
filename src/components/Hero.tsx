@@ -59,12 +59,32 @@ const Hero = () => {
             </Button>
           </motion.div>
 
-          {/* Stats */}
+          {/* Tech Stack */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="mt-16 grid grid-cols-3 gap-8 max-w-md mx-auto"
+            className="mt-14"
+          >
+            <p className="text-sm text-muted-foreground mb-4">Technologies we work with</p>
+            <div className="flex flex-wrap justify-center gap-3">
+              {["WordPress", "Laravel", "React", "Next.js", "Tailwind CSS", "PHP", "TypeScript"].map((tech) => (
+                <span 
+                  key={tech}
+                  className="px-4 py-2 bg-background border border-border rounded-full text-sm font-medium text-foreground/80 hover:border-primary/50 hover:text-primary transition-colors"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Stats */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="mt-12 grid grid-cols-3 gap-8 max-w-md mx-auto"
           >
             {[
               { value: "5+", label: "Years Experience" },
