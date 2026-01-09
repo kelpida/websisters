@@ -32,7 +32,7 @@ const Footer = () => {
           </nav>
 
           <p className="text-muted-foreground text-sm">
-            © {currentYear} SisterCode Cyprus. Made with ❤️
+            © {currentYear} WebSisters Cyprus. Made with ❤️
           </p>
         </motion.div>
       </div>
