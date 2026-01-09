@@ -5,7 +5,7 @@ const services = [
   {
     icon: Code,
     title: "Web Development",
-    description: "Custom websites and web applications built with modern technologies. From landing pages to complex e-commerce platforms.",
+    description: "From WordPress sites to custom web apps with Laravel, React, Next.js & Tailwind. We build what your business needs.",
   },
   {
     icon: Mail,
