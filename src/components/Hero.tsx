@@ -19,7 +19,7 @@ const Hero = () => {
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary text-secondary-foreground text-sm font-medium mb-8"
           >
             <Sparkles size={16} className="text-primary" />
-            Two Sisters, One Vision
+            Your Web, Our Expertise
           </motion.div>
 
           <motion.h1
