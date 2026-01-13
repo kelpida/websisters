@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ExternalLink, ArrowRight } from "lucide-react";
 import { Button } from "./ui/button";
+import { Link } from "react-router-dom";
 import portfolioImage from "@/assets/portfolio-everafter.jpg";
 
 const projects = [
@@ -130,10 +131,12 @@ const Portfolio = () => {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="text-center mt-12"
         >
-          <Button variant="heroOutline" size="lg">
-            See All Projects
-            <ArrowRight size={18} />
-          </Button>
+          <Link to="/portfolio">
+            <Button variant="heroOutline" size="lg">
+              See All Projects
+              <ArrowRight size={18} />
+            </Button>
+          </Link>
         </motion.div>
       </div>
     </section>
