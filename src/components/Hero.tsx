@@ -167,16 +167,18 @@ const Hero = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
             >
-              <Button variant="hero" size="xl" className="group animate-pulse-glow">
-                Start Your Project
-                <motion.span
-                  className="inline-block"
-                  animate={{ x: [0, 5, 0] }}
-                  transition={{ duration: 1.5, repeat: Infinity }}
-                >
-                  <ArrowRight size={20} />
-                </motion.span>
-              </Button>
+              <a href="#contact">
+                <Button variant="hero" size="xl" className="group animate-pulse-glow">
+                  Start Your Project
+                  <motion.span
+                    className="inline-block"
+                    animate={{ x: [0, 5, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                  >
+                    <ArrowRight size={20} />
+                  </motion.span>
+                </Button>
+              </a>
             </motion.div>
             <motion.div
               whileHover={{ scale: 1.05 }}
