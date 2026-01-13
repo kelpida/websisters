@@ -182,9 +182,11 @@ const Hero = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
             >
-              <Button variant="heroOutline" size="xl">
-                View Our Work
-              </Button>
+              <a href="#portfolio">
+                <Button variant="heroOutline" size="xl">
+                  View Our Work
+                </Button>
+              </a>
             </motion.div>
           </motion.div>
 
