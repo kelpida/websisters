@@ -19,7 +19,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ["DM Serif Display", "serif"],
+        display: ["Manrope", "sans-serif"],
         sans: ["DM Sans", "sans-serif"],
       },
       colors: {
