@@ -1,8 +1,9 @@
-import { motion } from "framer-motion";
-import { ExternalLink, ArrowRight } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { ExternalLink, ArrowRight, Sparkles } from "lucide-react";
 import { Button } from "./ui/button";
 import { Link } from "react-router-dom";
 import portfolioImage from "@/assets/portfolio-everafter.jpg";
+import { useRef } from "react";
 
 const projects = [
   {
@@ -32,16 +33,52 @@ const projects = [
 ];
 
 const Portfolio = () => {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"]
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
+
   return (
-    <section id="portfolio" className="py-24">
-      <div className="container mx-auto px-6">
+    <section id="portfolio" className="py-24 relative overflow-hidden" ref={sectionRef}>
+      {/* Parallax background elements */}
+      <motion.div
+        className="absolute top-20 left-10 w-32 h-32 rounded-full opacity-20"
+        style={{
+          y,
+          background: "radial-gradient(circle, hsl(210 100% 55% / 0.3) 0%, transparent 70%)",
+        }}
+      />
+      <motion.div
+        className="absolute bottom-40 right-20 w-48 h-48 rounded-full opacity-15"
+        style={{
+          y: useTransform(scrollYProgress, [0, 1], [50, -150]),
+          background: "radial-gradient(circle, hsl(195 100% 50% / 0.3) 0%, transparent 70%)",
+        }}
+      />
+
+      <div className="container mx-auto px-6 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, type: "spring", stiffness: 100 }}
           className="text-center mb-16"
         >
+          <motion.div
+            initial={{ scale: 0, rotate: -180 }}
+            whileInView={{ scale: 1, rotate: 0 }}
+            viewport={{ once: true }}
+            transition={{ type: "spring", stiffness: 200, damping: 15 }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4"
+          >
+            <Sparkles size={16} />
+            Featured Work
+          </motion.div>
+          
           <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-4">
             Our Work
           </h2>
@@ -51,67 +88,173 @@ const Portfolio = () => {
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-8">
-          {/* Featured Project */}
+          {/* Featured Project with 3D effect */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            initial={{ opacity: 0, x: -60, rotateY: -15 }}
+            whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.8, type: "spring", stiffness: 80 }}
             className="lg:row-span-2"
+            style={{ transformPerspective: 1000 }}
           >
-            <a
+            <motion.a
               href={projects[0].url}
               target="_blank"
               rel="noopener noreferrer"
               className="group block h-full"
+              whileHover={{ scale: 1.02 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
-              <div className="relative h-full min-h-[400px] lg:min-h-full rounded-2xl overflow-hidden bg-gradient-hero border border-border/50 shadow-soft hover:shadow-elevated transition-all duration-300">
-                <img src={portfolioImage} alt="The Ever After Link project" className="absolute inset-0 w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/20 to-transparent" />
+              <div className="relative h-full min-h-[400px] lg:min-h-full rounded-2xl overflow-hidden bg-gradient-hero border border-border/50 shadow-soft group-hover:shadow-glow transition-all duration-500">
+                <motion.img 
+                  src={portfolioImage} 
+                  alt="The Ever After Link project" 
+                  className="absolute inset-0 w-full h-full object-cover"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ duration: 0.6 }}
+                />
+                
+                {/* Animated overlay */}
+                <motion.div 
+                  className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/30 to-transparent"
+                  initial={{ opacity: 0.7 }}
+                  whileHover={{ opacity: 0.85 }}
+                />
+                
+                {/* Shimmer effect on hover */}
+                <motion.div
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100"
+                  style={{
+                    background: "linear-gradient(45deg, transparent 30%, hsl(210 100% 55% / 0.1) 50%, transparent 70%)",
+                    backgroundSize: "200% 200%",
+                  }}
+                  animate={{
+                    backgroundPosition: ["200% 200%", "-200% -200%"],
+                  }}
+                  transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 0.5 }}
+                />
+                
                 <div className="absolute bottom-0 left-0 right-0 p-8">
-                  <div className="flex items-center gap-2 text-primary-foreground text-sm font-medium mb-2">
-                    <span className="px-3 py-1 bg-primary/80 rounded-full">
+                  <motion.div 
+                    className="flex items-center gap-2 text-primary-foreground text-sm font-medium mb-2"
+                    initial={{ y: 20, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.3 }}
+                  >
+                    <span className="px-3 py-1 bg-primary/80 rounded-full backdrop-blur-sm">
                       {projects[0].category}
                     </span>
-                    <span className="px-3 py-1 bg-accent/80 rounded-full">
+                    <motion.span 
+                      className="px-3 py-1 bg-accent/80 rounded-full backdrop-blur-sm"
+                      animate={{ scale: [1, 1.05, 1] }}
+                      transition={{ duration: 2, repeat: Infinity }}
+                    >
                       Featured
-                    </span>
-                  </div>
-                  <h3 className="font-display text-2xl font-bold text-primary-foreground mb-2 group-hover:text-primary transition-colors">
+                    </motion.span>
+                  </motion.div>
+                  
+                  <motion.h3 
+                    className="font-display text-2xl font-bold text-primary-foreground mb-2 group-hover:text-primary transition-colors duration-300"
+                    initial={{ y: 20, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.4 }}
+                  >
                     {projects[0].title}
-                  </h3>
-                  <p className="text-primary-foreground/80 mb-4">
+                  </motion.h3>
+                  
+                  <motion.p 
+                    className="text-primary-foreground/80 mb-4"
+                    initial={{ y: 20, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.5 }}
+                  >
                     {projects[0].description}
-                  </p>
-                  <div className="flex items-center gap-2 text-primary-foreground font-medium">
+                  </motion.p>
+                  
+                  <motion.div 
+                    className="flex items-center gap-2 text-primary-foreground font-medium"
+                    initial={{ y: 20, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.6 }}
+                  >
                     Visit Website
-                    <ExternalLink size={16} className="group-hover:translate-x-1 transition-transform" />
-                  </div>
+                    <motion.span
+                      animate={{ x: [0, 5, 0] }}
+                      transition={{ duration: 1.5, repeat: Infinity }}
+                    >
+                      <ExternalLink size={16} />
+                    </motion.span>
+                  </motion.div>
                 </div>
               </div>
-            </a>
+            </motion.a>
           </motion.div>
 
           {/* Other Projects */}
           {projects.slice(1).map((project, index) => (
             <motion.div
               key={project.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: (index + 1) * 0.1 }}
+              initial={{ opacity: 0, y: 40, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, margin: "-30px" }}
+              transition={{ 
+                duration: 0.6, 
+                delay: index * 0.15,
+                type: "spring",
+                stiffness: 100
+              }}
             >
-              <a
+              <motion.a
                 href={project.url}
                 className="group block"
+                whileHover={{ y: -8 }}
+                transition={{ type: "spring", stiffness: 400, damping: 17 }}
               >
-                <div className="relative h-64 rounded-2xl overflow-hidden bg-card border border-border/50 shadow-soft hover:shadow-elevated transition-all duration-300">
-                  <div className="absolute inset-0 bg-gradient-to-br from-secondary to-muted" />
-                  <div className="absolute bottom-0 left-0 right-0 p-6">
+                <div className="relative h-64 rounded-2xl overflow-hidden bg-card border border-border/50 shadow-soft group-hover:shadow-glow group-hover:border-primary/30 transition-all duration-500">
+                  {/* Animated gradient background */}
+                  <motion.div 
+                    className="absolute inset-0"
+                    style={{
+                      background: "linear-gradient(135deg, hsl(var(--secondary)) 0%, hsl(var(--muted)) 50%, hsl(var(--secondary)) 100%)",
+                      backgroundSize: "200% 200%",
+                    }}
+                    animate={{
+                      backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+                    }}
+                    transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+                  />
+                  
+                  {/* Floating particles */}
+                  <motion.div
+                    className="absolute w-2 h-2 rounded-full bg-primary/30"
+                    style={{ top: "20%", left: "20%" }}
+                    animate={{
+                      y: [-10, 10, -10],
+                      x: [-5, 5, -5],
+                      opacity: [0.3, 0.6, 0.3],
+                    }}
+                    transition={{ duration: 4, repeat: Infinity }}
+                  />
+                  <motion.div
+                    className="absolute w-3 h-3 rounded-full bg-accent/20"
+                    style={{ top: "40%", right: "30%" }}
+                    animate={{
+                      y: [10, -10, 10],
+                      x: [5, -5, 5],
+                      opacity: [0.2, 0.5, 0.2],
+                    }}
+                    transition={{ duration: 5, repeat: Infinity, delay: 1 }}
+                  />
+                  
+                  <div className="absolute bottom-0 left-0 right-0 p-6 z-10">
                     <span className="text-muted-foreground text-sm font-medium">
                       {project.category}
                     </span>
-                    <h3 className="font-display text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+                    <h3 className="font-display text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
                       {project.title}
                     </h3>
                     <p className="text-muted-foreground text-sm">
@@ -119,23 +262,34 @@ const Portfolio = () => {
                     </p>
                   </div>
                 </div>
-              </a>
+              </motion.a>
             </motion.div>
           ))}
         </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
           className="text-center mt-12"
         >
           <Link to="/portfolio">
-            <Button variant="heroOutline" size="lg">
-              See All Projects
-              <ArrowRight size={18} />
-            </Button>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <Button variant="heroOutline" size="lg" className="group">
+                See All Projects
+                <motion.span
+                  className="inline-block"
+                  animate={{ x: [0, 4, 0] }}
+                  transition={{ duration: 1.5, repeat: Infinity }}
+                >
+                  <ArrowRight size={18} />
+                </motion.span>
+              </Button>
+            </motion.div>
           </Link>
         </motion.div>
       </div>
