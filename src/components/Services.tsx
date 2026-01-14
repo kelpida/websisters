@@ -1,8 +1,24 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { Code, Mail, Server, Newspaper, Settings, Palette, X, ExternalLink, CheckCircle } from "lucide-react";
+import { Code, Mail, Server, Newspaper, Settings, Palette, X, ExternalLink, CheckCircle, Handshake } from "lucide-react";
 import { useState } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "./ui/dialog";
 import { Button } from "./ui/button";
+
+interface Partner {
+  name: string;
+  logo: string;
+}
+
+interface Service {
+  icon: typeof Code;
+  title: string;
+  description: string;
+  fullDescription: string;
+  features: string[];
+  samples: { title: string; type: string; url: string }[];
+  isPartnerService?: boolean;
+  partners?: Partner[];
+}
 
 const services = [
   {
@@ -98,8 +114,8 @@ const services = [
   {
     icon: Palette,
     title: "Brand Identity",
-    description: "Logo design and brand identity packages that capture your business essence and stand out.",
-    fullDescription: "Create a lasting impression with a cohesive brand identity that tells your story. From logo design to complete brand guidelines, we help you build a visual identity that resonates with your audience.",
+    description: "Logo design and brand identity packages through our trusted creative partners who share our standards.",
+    fullDescription: "While we focus on web development and digital solutions, we work closely with trusted creative partners to deliver exceptional brand identities. This collaboration ensures you get specialized expertise while we manage the entire process seamlessly.",
     features: [
       "Custom logo design",
       "Color palette & typography",
@@ -111,6 +127,11 @@ const services = [
     samples: [
       { title: "Startup Branding", type: "Complete Package", url: "#" },
       { title: "Logo Redesign", type: "Brand Refresh", url: "#" },
+    ],
+    isPartnerService: true,
+    partners: [
+      { name: "Partner 1", logo: "/partner-logo-1.png" },
+      { name: "Partner 2", logo: "/partner-logo-2.png" },
     ]
   },
 ];
@@ -323,6 +344,49 @@ const Services = () => {
                     ))}
                   </div>
                 </motion.div>
+
+                {/* Partner Service Notice */}
+                {selectedService.isPartnerService && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.35 }}
+                    className="p-4 bg-primary/5 rounded-xl border border-primary/20"
+                  >
+                    <div className="flex items-start gap-3">
+                      <Handshake size={20} className="text-primary shrink-0 mt-0.5" />
+                      <div>
+                        <p className="text-sm text-foreground/80">
+                          This service is delivered through our trusted creative partners who share our commitment to quality and excellence.
+                        </p>
+                        {selectedService.partners && selectedService.partners.length > 0 && (
+                          <div className="mt-4">
+                            <p className="text-xs text-muted-foreground mb-3">Our Partners</p>
+                            <div className="flex gap-4 items-center">
+                              {selectedService.partners.map((partner) => (
+                                <div 
+                                  key={partner.name}
+                                  className="h-10 px-4 bg-background rounded-lg border border-border/50 flex items-center justify-center"
+                                >
+                                  <img 
+                                    src={partner.logo} 
+                                    alt={partner.name}
+                                    className="h-6 w-auto object-contain"
+                                    onError={(e) => {
+                                      e.currentTarget.style.display = 'none';
+                                      e.currentTarget.nextElementSibling?.classList.remove('hidden');
+                                    }}
+                                  />
+                                  <span className="hidden text-sm text-muted-foreground">{partner.name}</span>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
 
                 {/* Sample Work */}
                 <motion.div
