@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import Logo from "./Logo";
 
 const Footer = () => {
+  const { t } = useTranslation();
   const currentYear = new Date().getFullYear();
 
   return (
@@ -18,21 +20,21 @@ const Footer = () => {
           
           <nav className="flex items-center gap-8">
             <a href="#services" className="text-muted-foreground hover:text-foreground transition-colors text-sm">
-              Services
+              {t("nav.services")}
             </a>
             <a href="#portfolio" className="text-muted-foreground hover:text-foreground transition-colors text-sm">
-              Portfolio
+              {t("nav.portfolio")}
             </a>
             <a href="#about" className="text-muted-foreground hover:text-foreground transition-colors text-sm">
-              About
+              {t("nav.about")}
             </a>
             <a href="#contact" className="text-muted-foreground hover:text-foreground transition-colors text-sm">
-              Contact
+              {t("nav.contact")}
             </a>
           </nav>
 
           <p className="text-muted-foreground text-sm">
-            © {currentYear} WebSisters. Made with ❤️
+            © {currentYear} WebSisters. {t("footer.madeWith")}
           </p>
         </motion.div>
       </div>

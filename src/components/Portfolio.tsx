@@ -2,6 +2,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { ExternalLink, ArrowRight, Sparkles } from "lucide-react";
 import { Button } from "./ui/button";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import portfolioImage from "@/assets/portfolio-everafterlink.png";
 import { useRef } from "react";
 
@@ -33,6 +34,7 @@ const projects = [
 ];
 
 const Portfolio = () => {
+  const { t } = useTranslation();
   const sectionRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -76,14 +78,14 @@ const Portfolio = () => {
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4"
           >
             <Sparkles size={16} />
-            Featured Work
+            {t("portfolio.featuredWork")}
           </motion.div>
           
           <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Our Work
+            {t("portfolio.title")}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Projects we've brought to life with passion and precision.
+            {t("portfolio.description")}
           </p>
         </motion.div>
 

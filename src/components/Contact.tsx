@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import { Mail, MapPin, Phone, Instagram, Facebook, Linkedin } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const Contact = () => {
+  const { t } = useTranslation();
   return (
     <section id="contact" className="py-24">
       <div className="container mx-auto px-6">
@@ -13,11 +15,10 @@ const Contact = () => {
           className="text-center mb-16"
         >
           <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Let's Create Together
+            {t("contact.subtitle")}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Ready to start your project? Reach out and let's discuss 
-            how we can bring your vision to life.
+            {t("contact.description")}
           </p>
         </motion.div>
 
@@ -30,7 +31,7 @@ const Contact = () => {
         >
           <div className="p-8 bg-gradient-hero rounded-2xl border border-border/50">
             <h3 className="font-display text-2xl font-bold text-foreground mb-8 text-center">
-              Get in Touch
+              {t("contact.title")}
             </h3>
             
             {/* Contact Info Grid */}
@@ -40,7 +41,7 @@ const Contact = () => {
                   <Mail size={20} className="text-primary-foreground" />
                 </div>
                 <div>
-                  <p className="text-sm text-muted-foreground">Email</p>
+                  <p className="text-sm text-muted-foreground">{t("contact.email")}</p>
                   <a 
                     href="mailto:info@websisters.com.cy" 
                     className="text-foreground font-medium hover:text-primary transition-colors"
@@ -55,7 +56,7 @@ const Contact = () => {
                   <MapPin size={20} className="text-primary-foreground" />
                 </div>
                 <div>
-                  <p className="text-sm text-muted-foreground">Location</p>
+                  <p className="text-sm text-muted-foreground">{t("contact.location")}</p>
                   <p className="text-foreground font-medium">
                     Cyprus 🇨🇾
                   </p>
@@ -67,7 +68,7 @@ const Contact = () => {
                   <Phone size={20} className="text-primary-foreground" />
                 </div>
                 <div>
-                  <p className="text-sm text-muted-foreground">Phone</p>
+                  <p className="text-sm text-muted-foreground">{t("contact.phone")}</p>
                   <a 
                     href="tel:+35799123456" 
                     className="text-foreground font-medium hover:text-primary transition-colors"
@@ -82,7 +83,7 @@ const Contact = () => {
                   <Phone size={20} className="text-primary-foreground" />
                 </div>
                 <div>
-                  <p className="text-sm text-muted-foreground">Phone</p>
+                  <p className="text-sm text-muted-foreground">{t("contact.phone")}</p>
                   <a 
                     href="tel:+35796123456" 
                     className="text-foreground font-medium hover:text-primary transition-colors"
@@ -95,7 +96,7 @@ const Contact = () => {
 
             {/* Social Media Links */}
             <div className="border-t border-border/50 pt-6">
-              <p className="text-sm text-muted-foreground text-center mb-4">Follow us</p>
+              <p className="text-sm text-muted-foreground text-center mb-4">{t("contact.followUs")}</p>
               <div className="flex justify-center gap-4">
                 <a 
                   href="https://instagram.com/websisters" 
@@ -133,7 +134,7 @@ const Contact = () => {
             className="mt-6 p-6 bg-card rounded-2xl border border-border/50 shadow-soft text-center"
           >
             <p className="text-muted-foreground">
-              We typically respond within 24-48 hours. Looking forward to hearing from you!
+              {t("contact.responseTime")}
             </p>
           </motion.div>
         </motion.div>

@@ -1,9 +1,11 @@
 import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { Button } from "./ui/button";
+import { useTranslation } from "react-i18next";
 import { useRef, useEffect, useState } from "react";
 
 const Hero = () => {
+  const { t } = useTranslation();
   const containerRef = useRef<HTMLDivElement>(null);
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -129,14 +131,14 @@ const Hero = () => {
             >
               <Sparkles size={16} className="text-primary" />
             </motion.div>
-            Your Web, Our Expertise
+            {t("hero.badge")}
           </motion.div>
 
           <motion.h1
             variants={itemVariants}
             className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6 leading-tight"
           >
-            We Build Beautiful
+            {t("hero.title")}
             <br />
             <motion.span 
               className="text-gradient-primary inline-block"
@@ -146,7 +148,7 @@ const Hero = () => {
               transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
               style={{ backgroundSize: "200% 200%" }}
             >
-              Digital Experiences
+              {t("hero.titleHighlight")}
             </motion.span>
           </motion.h1>
 
@@ -154,9 +156,7 @@ const Hero = () => {
             variants={itemVariants}
             className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10"
           >
-            Based in sunny Cyprus, we're a sister duo crafting stunning websites, 
-            professional email solutions, and complete digital experiences for 
-            businesses ready to shine online.
+            {t("hero.subtitle")}
           </motion.p>
 
           <motion.div
@@ -169,7 +169,7 @@ const Hero = () => {
             >
               <a href="#contact">
                 <Button variant="hero" size="xl" className="group animate-pulse-glow">
-                  Start Your Project
+                  {t("hero.cta")}
                   <motion.span
                     className="inline-block"
                     animate={{ x: [0, 5, 0] }}
@@ -186,7 +186,7 @@ const Hero = () => {
             >
               <a href="#portfolio">
                 <Button variant="heroOutline" size="xl">
-                  View Our Work
+                  {t("hero.ctaSecondary")}
                 </Button>
               </a>
             </motion.div>

@@ -1,0 +1,180 @@
+{
+  "nav": {
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "about": "About",
+    "contact": "Contact",
+    "getInTouch": "Get in Touch",
+    "language": "Language",
+    "menu": "Menu",
+    "backToHome": "Back to Home",
+    "followUs": "Follow Us"
+  },
+  "navbar": {
+    "contact": "Contact",
+    "email": "Email",
+    "phone": "Phone"
+  },
+  "hero": {
+    "badge": "Your Web, Our Expertise",
+    "title": "We Build Beautiful",
+    "titleHighlight": "Digital Experiences",
+    "subtitle": "Based in sunny Cyprus, we're a sister duo crafting stunning websites, professional email solutions, and complete digital experiences for businesses ready to shine online.",
+    "cta": "Start Your Project",
+    "ctaSecondary": "View Our Work",
+    "stats": {
+      "years": "Years of Experience",
+      "projects": "Projects Completed",
+      "satisfaction": "Client Satisfaction %"
+    }
+  },
+  "services": {
+    "title": "Our Services",
+    "webDevelopment": {
+      "title": "Web Development",
+      "description": "From WordPress sites to custom web apps with Laravel, React, Next.js & Tailwind. We build what your business needs.",
+      "fullDescription": "We craft stunning, high-performance websites and web applications tailored to your unique business needs. Whether you need a simple landing page or a complex e-commerce platform, we've got you covered.",
+      "features": [
+        "Custom WordPress themes & plugins",
+        "React & Next.js applications",
+        "Laravel backend development",
+        "E-commerce solutions (WooCommerce, Shopify)",
+        "Progressive Web Apps (PWA)",
+        "API integrations"
+      ]
+    },
+    "emailSignatures": {
+      "title": "Email Signatures",
+      "description": "Professional, branded email signatures that make every email an opportunity to impress your contacts.",
+      "fullDescription": "Transform every email into a branding opportunity with our professionally designed email signatures. We create pixel-perfect signatures that work across all email clients and devices.",
+      "features": [
+        "Responsive design for all devices",
+        "Compatible with Gmail, Outlook, Apple Mail",
+        "Social media integration",
+        "Call-to-action buttons",
+        "Multiple signature variations",
+        "Easy installation guide included"
+      ]
+    },
+    "hostingMaintenance": {
+      "title": "Hosting & Maintenance",
+      "description": "Reliable hosting solutions with ongoing maintenance to keep your site secure, fast, and always online.",
+      "fullDescription": "Rest easy knowing your website is in safe hands. We provide premium hosting with 99.9% uptime, regular backups, security monitoring, and proactive maintenance to keep your site running smoothly.",
+      "features": [
+        "99.9% uptime guarantee",
+        "Daily automated backups",
+        "SSL certificate management",
+        "Security monitoring & updates",
+        "Performance optimization",
+        "24/7 technical support"
+      ]
+    },
+    "newsletterDesign": {
+      "title": "Newsletter Design",
+      "description": "Engaging newsletter templates and campaigns that connect with your audience and drive results.",
+      "fullDescription": "Captivate your subscribers with beautifully designed newsletters that drive engagement and conversions. We create templates that reflect your brand and compel readers to take action.",
+      "features": [
+        "Custom template design",
+        "Mobile-responsive layouts",
+        "A/B testing optimization",
+        "Mailchimp & SendGrid integration",
+        "Analytics & tracking setup",
+        "Automated campaign setup"
+      ]
+    },
+    "emailSetup": {
+      "title": "Email Setup",
+      "description": "Complete email configuration for your business domain, including spam protection and professional setup.",
+      "fullDescription": "Get professional business email that builds trust and credibility. We handle the complete setup including DNS configuration, spam protection, and email client configuration across all your devices.",
+      "features": [
+        "Custom domain email (you@yourbusiness.com)",
+        "Google Workspace / Microsoft 365 setup",
+        "SPF, DKIM, DMARC configuration",
+        "Spam & phishing protection",
+        "Email forwarding & aliases",
+        "Multi-device configuration"
+      ]
+    },
+    "brandIdentity": {
+      "title": "Brand Identity",
+      "description": "Logo design and brand identity packages through our trusted creative partners who share our standards.",
+      "fullDescription": "While we focus on web development and digital solutions, we work closely with trusted creative partners to deliver exceptional brand identities. This collaboration ensures you get specialized expertise while we manage the entire process seamlessly.",
+      "features": [
+        "Custom logo design",
+        "Color palette & typography",
+        "Brand style guidelines",
+        "Business card design",
+        "Social media assets",
+        "Brand collateral templates"
+      ]
+    },
+    "learnMore": "Learn More",
+    "close": "Close"
+  },
+  "about": {
+    "title": "The Sisters Behind",
+    "titleHighlight": "the Screen",
+    "story": [
+      "We're two sisters from the beautiful island of Cyprus, united by our love for design and technology. What started as a shared passion has grown into a creative partnership that brings websites and digital experiences to life.",
+      "Working as a duo gives us a unique advantage: two perspectives, double the creativity, and a natural collaboration that our clients love. We bring the best of both worlds – technical precision and creative flair – to every project we take on.",
+      "When we're not coding or designing, you'll find us exploring Cyprus's stunning coastlines, sipping coffee at local cafés, and finding inspiration in the Mediterranean lifestyle that shapes our work."
+    ],
+    "values": {
+      "love": {
+        "title": "Made with Love",
+        "description": "Every project gets our full dedication and personal touch."
+      },
+      "creativity": {
+        "title": "Creative Solutions",
+        "description": "We blend creativity with technical expertise for unique results."
+      },
+      "connection": {
+        "title": "Personal Connection",
+        "description": "We work closely with you, understanding your vision and goals."
+      }
+    }
+  },
+  "portfolio": {
+    "title": "Our Work",
+    "description": "Projects we've brought to life with passion and precision.",
+    "featuredWork": "Featured Work",
+    "allProjects": "All",
+    "websites": "Websites",
+    "emailSignatures": "Email Signatures",
+    "emailSolutions": "Email Solutions",
+    "viewProject": "View Project",
+    "comingSoon": "Coming Soon",
+    "categories": "Filter by Category",
+    "backToHome": "Back to Home",
+    "cta": "Ready to Start Your Project?",
+    "ctaButton": "Get in Touch"
+  },
+  "testimonials": {
+    "title": "What Our Clients Say",
+    "description": "Don't just take our word for it – hear from the businesses we've helped transform"
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "subtitle": "Let's Create Together",
+    "description": "Ready to start your project? Reach out and let's discuss how we can bring your vision to life.",
+    "email": "Email",
+    "phone": "Phone",
+    "location": "Location",
+    "followUs": "Follow us",
+    "responseTime": "We typically respond within 24-48 hours. Looking forward to hearing from you!",
+    "form": {
+      "name": "Your Name",
+      "email": "Your Email",
+      "subject": "Subject",
+      "message": "Message",
+      "send": "Send Message",
+      "sending": "Sending...",
+      "sent": "Message sent successfully!",
+      "error": "Failed to send message. Please try again."
+    }
+  },
+  "footer": {
+    "madeWith": "Made with ❤️",
+    "allRightsReserved": "All rights reserved."
+  }
+}

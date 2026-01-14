@@ -1,60 +1,62 @@
 import { motion } from "framer-motion";
 import { Star, Quote } from "lucide-react";
 import { useState } from "react";
-
-const testimonials = [
-  {
-    name: "Sarah Mitchell",
-    role: "Founder, Bloom Boutique",
-    image: null,
-    rating: 5,
-    text: "Working with these sisters was an absolute dream! They transformed my vision into a stunning website that perfectly captures my brand. The attention to detail and creative solutions exceeded all my expectations.",
-    project: "E-Commerce Website"
-  },
-  {
-    name: "Michael Chen",
-    role: "CEO, TechStart Solutions",
-    image: null,
-    rating: 5,
-    text: "Professional, responsive, and incredibly talented. They delivered our web application on time and the quality was outstanding. Our conversion rates have increased by 40% since launch!",
-    project: "Web Application"
-  },
-  {
-    name: "Emma Rodriguez",
-    role: "Marketing Director, Coastal Events",
-    image: null,
-    rating: 5,
-    text: "The email signatures and newsletter templates they created for us are absolutely gorgeous. Every client compliments our professional branding. Highly recommend their services!",
-    project: "Email & Newsletter Design"
-  },
-  {
-    name: "David Thompson",
-    role: "Owner, Cyprus Eats Restaurant",
-    image: null,
-    rating: 5,
-    text: "They understood exactly what we needed for our restaurant website. The online ordering system works flawlessly and our customers love it. Best investment we've made for our business.",
-    project: "Restaurant Website"
-  },
-  {
-    name: "Lisa Anderson",
-    role: "Photographer, Light & Shadow Studio",
-    image: null,
-    rating: 5,
-    text: "My portfolio website is absolutely stunning! They captured my artistic style perfectly and the site loads incredibly fast. I've received so many compliments from potential clients.",
-    project: "Portfolio Website"
-  },
-  {
-    name: "James Wilson",
-    role: "Director, GreenPath Consulting",
-    image: null,
-    rating: 5,
-    text: "From domain setup to email configuration, they handled everything professionally. Our business now looks more credible than ever. The ongoing support has been exceptional.",
-    project: "Complete Digital Setup"
-  },
-];
+import { useTranslation } from "react-i18next";
 
 const Testimonials = () => {
+  const { t } = useTranslation();
   const [activeIndex, setActiveIndex] = useState(0);
+
+  const testimonials = [
+    {
+      name: "Sarah Mitchell",
+      role: "Founder, Bloom Boutique",
+      image: null,
+      rating: 5,
+      text: "Working with these sisters was an absolute dream! They transformed my vision into a stunning website that perfectly captures my brand. The attention to detail and creative solutions exceeded all my expectations.",
+      project: "E-Commerce Website"
+    },
+    {
+      name: "Michael Chen",
+      role: "CEO, TechStart Solutions",
+      image: null,
+      rating: 5,
+      text: "Professional, responsive, and incredibly talented. They delivered our web application on time and the quality was outstanding. Our conversion rates have increased by 40% since launch!",
+      project: "Web Application"
+    },
+    {
+      name: "Emma Rodriguez",
+      role: "Marketing Director, Coastal Events",
+      image: null,
+      rating: 5,
+      text: "The email signatures and newsletter templates they created for us are absolutely gorgeous. Every client compliments our professional branding. Highly recommend their services!",
+      project: "Email & Newsletter Design"
+    },
+    {
+      name: "David Thompson",
+      role: "Owner, Cyprus Eats Restaurant",
+      image: null,
+      rating: 5,
+      text: "They understood exactly what we needed for our restaurant website. The online ordering system works flawlessly and our customers love it. Best investment we've made for our business.",
+      project: "Restaurant Website"
+    },
+    {
+      name: "Lisa Anderson",
+      role: "Photographer, Light & Shadow Studio",
+      image: null,
+      rating: 5,
+      text: "My portfolio website is absolutely stunning! They captured my artistic style perfectly and the site loads incredibly fast. I've received so many compliments from potential clients.",
+      project: "Portfolio Website"
+    },
+    {
+      name: "James Wilson",
+      role: "Director, GreenPath Consulting",
+      image: null,
+      rating: 5,
+      text: "From domain setup to email configuration, they handled everything professionally. Our business now looks more credible than ever. The ongoing support has been exceptional.",
+      project: "Complete Digital Setup"
+    },
+  ];
 
   return (
     <section className="py-24 relative overflow-hidden">
@@ -98,7 +100,7 @@ const Testimonials = () => {
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4"
           >
             <Star size={16} fill="currentColor" />
-            Client Love
+            {t("testimonials.title")}
           </motion.div>
           
           <motion.h2 
@@ -108,7 +110,7 @@ const Testimonials = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            What Our Clients Say
+            {t("testimonials.title")}
           </motion.h2>
           <motion.p 
             className="text-lg text-muted-foreground max-w-2xl mx-auto"
@@ -117,7 +119,7 @@ const Testimonials = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            Don't just take our word for it — hear from the businesses we've helped succeed online.
+            {t("testimonials.description")}
           </motion.p>
         </motion.div>
 

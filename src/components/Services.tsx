@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { Code, Mail, Server, Newspaper, Settings, Palette, X, ExternalLink, CheckCircle, Handshake } from "lucide-react";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "./ui/dialog";
 import { Button } from "./ui/button";
 
@@ -18,22 +19,17 @@ interface Service {
   samples: { title: string; type: string; url: string }[];
   isPartnerService?: boolean;
   partners?: Partner[];
+  key: string;
 }
 
-const services = [
+const getServices = (t: any): Service[] => [
   {
     icon: Code,
-    title: "Web Development",
-    description: "From WordPress sites to custom web apps with Laravel, React, Next.js & Tailwind. We build what your business needs.",
-    fullDescription: "We craft stunning, high-performance websites and web applications tailored to your unique business needs. Whether you need a simple landing page or a complex e-commerce platform, we've got you covered.",
-    features: [
-      "Custom WordPress themes & plugins",
-      "React & Next.js applications",
-      "Laravel backend development",
-      "E-commerce solutions (WooCommerce, Shopify)",
-      "Progressive Web Apps (PWA)",
-      "API integrations"
-    ],
+    title: t("services.webDevelopment.title"),
+    description: t("services.webDevelopment.description"),
+    fullDescription: t("services.webDevelopment.fullDescription"),
+    features: t("services.webDevelopment.features", { returnObjects: true }),
+    key: "webDevelopment",
     samples: [
       { title: "The Ever After Link", type: "Wedding Platform", url: "https://theeverafterlink.com" },
       { title: "E-Commerce Store", type: "Online Shop", url: "#" },
@@ -41,17 +37,11 @@ const services = [
   },
   {
     icon: Mail,
-    title: "Email Signatures",
-    description: "Professional, branded email signatures that make every email an opportunity to impress your contacts.",
-    fullDescription: "Transform every email into a branding opportunity with our professionally designed email signatures. We create pixel-perfect signatures that work across all email clients and devices.",
-    features: [
-      "Responsive design for all devices",
-      "Compatible with Gmail, Outlook, Apple Mail",
-      "Social media integration",
-      "Call-to-action buttons",
-      "Multiple signature variations",
-      "Easy installation guide included"
-    ],
+    title: t("services.emailSignatures.title"),
+    description: t("services.emailSignatures.description"),
+    fullDescription: t("services.emailSignatures.fullDescription"),
+    features: t("services.emailSignatures.features", { returnObjects: true }),
+    key: "emailSignatures",
     samples: [
       { title: "Corporate Signature", type: "Professional", url: "#" },
       { title: "Creative Signature", type: "Modern Design", url: "#" },
@@ -59,17 +49,11 @@ const services = [
   },
   {
     icon: Server,
-    title: "Hosting & Maintenance",
-    description: "Reliable hosting solutions with ongoing maintenance to keep your site secure, fast, and always online.",
-    fullDescription: "Rest easy knowing your website is in safe hands. We provide premium hosting with 99.9% uptime, regular backups, security monitoring, and proactive maintenance to keep your site running smoothly.",
-    features: [
-      "99.9% uptime guarantee",
-      "Daily automated backups",
-      "SSL certificate management",
-      "Security monitoring & updates",
-      "Performance optimization",
-      "24/7 technical support"
-    ],
+    title: t("services.hostingMaintenance.title"),
+    description: t("services.hostingMaintenance.description"),
+    fullDescription: t("services.hostingMaintenance.fullDescription"),
+    features: t("services.hostingMaintenance.features", { returnObjects: true }),
+    key: "hostingMaintenance",
     samples: [
       { title: "Managed WordPress", type: "Hosting Plan", url: "#" },
       { title: "AWS Hosting", type: "Cloud Infrastructure", url: "#" },
@@ -77,17 +61,11 @@ const services = [
   },
   {
     icon: Newspaper,
-    title: "Newsletter Design",
-    description: "Engaging newsletter templates and campaigns that connect with your audience and drive results.",
-    fullDescription: "Captivate your subscribers with beautifully designed newsletters that drive engagement and conversions. We create templates that reflect your brand and compel readers to take action.",
-    features: [
-      "Custom template design",
-      "Mobile-responsive layouts",
-      "A/B testing optimization",
-      "Mailchimp & SendGrid integration",
-      "Analytics & tracking setup",
-      "Automated campaign setup"
-    ],
+    title: t("services.newsletterDesign.title"),
+    description: t("services.newsletterDesign.description"),
+    fullDescription: t("services.newsletterDesign.fullDescription"),
+    features: t("services.newsletterDesign.features", { returnObjects: true }),
+    key: "newsletterDesign",
     samples: [
       { title: "Monthly Digest", type: "Newsletter Template", url: "#" },
       { title: "Product Launch", type: "Campaign Design", url: "#" },
@@ -95,17 +73,11 @@ const services = [
   },
   {
     icon: Settings,
-    title: "Email Setup",
-    description: "Complete email configuration for your business domain, including spam protection and professional setup.",
-    fullDescription: "Get professional business email that builds trust and credibility. We handle the complete setup including DNS configuration, spam protection, and email client configuration across all your devices.",
-    features: [
-      "Custom domain email (you@yourbusiness.com)",
-      "Google Workspace / Microsoft 365 setup",
-      "SPF, DKIM, DMARC configuration",
-      "Spam & phishing protection",
-      "Email forwarding & aliases",
-      "Multi-device configuration"
-    ],
+    title: t("services.emailSetup.title"),
+    description: t("services.emailSetup.description"),
+    fullDescription: t("services.emailSetup.fullDescription"),
+    features: t("services.emailSetup.features", { returnObjects: true }),
+    key: "emailSetup",
     samples: [
       { title: "Google Workspace", type: "Business Email", url: "#" },
       { title: "Microsoft 365", type: "Enterprise Solution", url: "#" },
@@ -113,17 +85,11 @@ const services = [
   },
   {
     icon: Palette,
-    title: "Brand Identity",
-    description: "Logo design and brand identity packages through our trusted creative partners who share our standards.",
-    fullDescription: "While we focus on web development and digital solutions, we work closely with trusted creative partners to deliver exceptional brand identities. This collaboration ensures you get specialized expertise while we manage the entire process seamlessly.",
-    features: [
-      "Custom logo design",
-      "Color palette & typography",
-      "Brand style guidelines",
-      "Business card design",
-      "Social media assets",
-      "Brand collateral templates"
-    ],
+    title: t("services.brandIdentity.title"),
+    description: t("services.brandIdentity.description"),
+    fullDescription: t("services.brandIdentity.fullDescription"),
+    features: t("services.brandIdentity.features", { returnObjects: true }),
+    key: "brandIdentity",
     samples: [
       { title: "Startup Branding", type: "Complete Package", url: "#" },
       { title: "Logo Redesign", type: "Brand Refresh", url: "#" },
@@ -166,7 +132,9 @@ const cardVariants = {
 };
 
 const Services = () => {
+  const { t } = useTranslation();
   const [selectedService, setSelectedService] = useState<typeof services[0] | null>(null);
+  const services = getServices(t);
 
   return (
     <section id="services" className="py-24 bg-secondary/30 relative overflow-hidden">
@@ -198,7 +166,7 @@ const Services = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            What We Do
+            {t("services.title")}
           </motion.h2>
           <motion.p 
             className="text-lg text-muted-foreground max-w-2xl mx-auto"
@@ -207,8 +175,7 @@ const Services = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            From concept to launch and beyond, we provide everything you need 
-            for a successful online presence.
+            {t("services.description") || "From concept to launch and beyond, we provide everything you need for a successful online presence."}
           </motion.p>
         </motion.div>
 
@@ -327,7 +294,7 @@ const Services = () => {
                   transition={{ delay: 0.2 }}
                 >
                   <h4 className="font-display text-lg font-semibold text-foreground mb-4">
-                    What's Included
+                    {t("services.whatIncluded") || "What's Included"}
                   </h4>
                   <div className="grid sm:grid-cols-2 gap-3">
                     {selectedService.features.map((feature, i) => (
@@ -357,11 +324,11 @@ const Services = () => {
                       <Handshake size={20} className="text-primary shrink-0 mt-0.5" />
                       <div>
                         <p className="text-sm text-foreground/80">
-                          This service is delivered through our trusted creative partners who share our commitment to quality and excellence.
+                          {t("services.partnerServiceNotice") || "This service is delivered through our trusted creative partners who share our commitment to quality and excellence."}
                         </p>
                         {selectedService.partners && selectedService.partners.length > 0 && (
                           <div className="mt-4">
-                            <p className="text-xs text-muted-foreground mb-3">Our Partners</p>
+                            <p className="text-xs text-muted-foreground mb-3">{t("services.ourPartners") || "Our Partners"}</p>
                             <div className="flex gap-4 items-center">
                               {selectedService.partners.map((partner) => (
                                 <div 
@@ -395,7 +362,7 @@ const Services = () => {
                   transition={{ delay: 0.4 }}
                 >
                   <h4 className="font-display text-lg font-semibold text-foreground mb-4">
-                    Sample Work
+                    {t("services.sampleWork") || "Sample Work"}
                   </h4>
                   <div className="grid sm:grid-cols-2 gap-4">
                     {selectedService.samples.map((sample, i) => (
@@ -437,7 +404,7 @@ const Services = () => {
                       className="w-full"
                       onClick={() => setSelectedService(null)}
                     >
-                      Get Started with {selectedService.title}
+                      {t("services.getStarted", { service: selectedService.title }) || `Get Started with ${selectedService.title}`}
                     </Button>
                   </a>
                 </motion.div>

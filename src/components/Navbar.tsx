@@ -1,18 +1,52 @@
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { motion } from "framer-motion";
+import { Menu, X, Globe, Mail, Phone, Linkedin, Facebook, Instagram, Twitter, Link } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import Logo from "./Logo";
 import { Button } from "./ui/button";
-
-const navLinks = [
-  { href: "#services", label: "Services" },
-  { href: "/portfolio", label: "Portfolio" },
-  { href: "#about", label: "About" },
-  { href: "#contact", label: "Contact" },
-];
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "./ui/dropdown-menu";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetClose,
+} from "./ui/sheet";
 
 const Navbar = () => {
+  const { t, i18n } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
+
+  const socialLinks = [
+    { icon: Linkedin, href: "#", label: "LinkedIn" },
+    { icon: Facebook, href: "#", label: "Facebook" },
+    { icon: Instagram, href: "#", label: "Instagram" },
+    { icon: Twitter, href: "#", label: "Twitter" },
+  ];
+
+  const contactInfo = {
+    email: "info@websisters.com.cy",
+    phone: "+357 22 123 456",
+  };
+
+  const navLinks = [
+    { href: "#services", label: t("nav.services") },
+    { href: "#portfolio", label: t("nav.portfolio") },
+    { href: "#about", label: t("nav.about") },
+    { href: "#contact", label: t("nav.contact") },
+  ];
+
+  const handleLanguageChange = (lang: string) => {
+    i18n.changeLanguage(lang);
+    localStorage.setItem("language", lang);
+  };
+
+  const currentLanguage = i18n.language === "gr" ? "ΕΛ" : "EN";
 
   return (
     <motion.nav 
@@ -23,7 +57,9 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
+          <Link to="/">
           <Logo />
+          </Link>
           
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
@@ -36,8 +72,37 @@ const Navbar = () => {
                 {link.label}
               </a>
             ))}
+            
+            {/* Language Dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button 
+                  variant="outline" 
+                  size="sm"
+                  className="flex items-center gap-2"
+                >
+                  <Globe size={16} />
+                  {currentLanguage}
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <DropdownMenuItem 
+                  onClick={() => handleLanguageChange("en")}
+                  className={i18n.language === "en" ? "bg-accent" : ""}
+                >
+                  English
+                </DropdownMenuItem>
+                <DropdownMenuItem 
+                  onClick={() => handleLanguageChange("gr")}
+                  className={i18n.language === "gr" ? "bg-accent" : ""}
+                >
+                  Ελληνικά
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+            
             <Button variant="hero" size="lg">
-              Get in Touch
+              {t("nav.getInTouch")}
             </Button>
           </div>
 
@@ -51,16 +116,16 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Mobile Navigation */}
-        <AnimatePresence>
-          {isOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              className="md:hidden overflow-hidden"
-            >
-              <div className="py-4 space-y-4">
+        {/* Mobile Navigation Drawer */}
+        <Sheet open={isOpen} onOpenChange={setIsOpen}>
+          <SheetContent side="right" className="w-[300px] sm:w-[350px] flex flex-col">
+            <SheetHeader>
+              <SheetTitle>Menu</SheetTitle>
+            </SheetHeader>
+
+            <div className="flex-1 overflow-y-auto py-6 space-y-6">
+              {/* Navigation Links */}
+              <nav className="space-y-4">
                 {navLinks.map((link) => (
                   <a
                     key={link.href}
@@ -71,13 +136,95 @@ const Navbar = () => {
                     {link.label}
                   </a>
                 ))}
-                <Button variant="hero" size="lg" className="w-full">
-                  Get in Touch
-                </Button>
+              </nav>
+
+              {/* Divider */}
+              <div className="border-t border-border/50" />
+
+              {/* Contact Information */}
+              <div className="space-y-3">
+                <h3 className="font-semibold text-foreground">Contact</h3>
+                <div className="space-y-2">
+                  <a
+                    href={`mailto:${contactInfo.email}`}
+                    className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    <Mail size={18} />
+                    <span className="text-sm break-all">{contactInfo.email}</span>
+                  </a>
+                  <a
+                    href={`tel:${contactInfo.phone}`}
+                    className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    <Phone size={18} />
+                    <span className="text-sm">{contactInfo.phone}</span>
+                  </a>
+                </div>
               </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+
+              {/* Divider */}
+              <div className="border-t border-border/50" />
+
+              {/* Social Links */}
+              <div className="space-y-3">
+                <h3 className="font-semibold text-foreground">Follow Us</h3>
+                <div className="flex gap-3">
+                  {socialLinks.map((social) => {
+                    const IconComponent = social.icon;
+                    return (
+                      <a
+                        key={social.label}
+                        href={social.href}
+                        className="p-2 rounded-lg bg-muted hover:bg-accent transition-colors"
+                        aria-label={social.label}
+                      >
+                        <IconComponent size={20} />
+                      </a>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Divider */}
+              <div className="border-t border-border/50" />
+
+              {/* Language Selector */}
+              <div className="space-y-3">
+                <h3 className="font-semibold text-foreground flex items-center gap-2">
+                  <Globe size={18} />
+                  {t("nav.language")}
+                </h3>
+                <div className="flex gap-2">
+                  <Button
+                    variant={i18n.language === "en" ? "default" : "outline"}
+                    size="sm"
+                    onClick={() => {
+                      i18n.changeLanguage("en");
+                      localStorage.setItem("language", "en");
+                    }}
+                  >
+                    English
+                  </Button>
+                  <Button
+                    variant={i18n.language === "gr" ? "default" : "outline"}
+                    size="sm"
+                    onClick={() => {
+                      i18n.changeLanguage("gr");
+                      localStorage.setItem("language", "gr");
+                    }}
+                  >
+                    Ελληνικά
+                  </Button>
+                </div>
+              </div>
+            </div>
+
+            {/* CTA Button */}
+            <Button variant="hero" size="lg" className="w-full">
+              {t("nav.getInTouch")}
+            </Button>
+          </SheetContent>
+        </Sheet>
       </div>
     </motion.nav>
   );

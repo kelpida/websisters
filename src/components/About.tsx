@@ -1,30 +1,56 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Heart, Lightbulb, Users } from "lucide-react";
 import { useRef } from "react";
+import { useTranslation } from "react-i18next";
 
 const values = [
   {
     icon: Heart,
-    title: "Made with Love",
-    description: "Every project gets our full dedication and personal touch.",
+    title: "made_with_love_title",
+    description: "made_with_love_description",
     color: "from-pink-500 to-rose-500",
   },
   {
     icon: Lightbulb,
-    title: "Creative Solutions",
-    description: "We blend creativity with technical expertise for unique results.",
+    title: "creative_solutions_title",
+    description: "creative_solutions_description",
     color: "from-amber-500 to-orange-500",
   },
   {
     icon: Users,
-    title: "Personal Connection",
-    description: "We work closely with you, understanding your vision and goals.",
+    title: "personal_connection_title",
+    description: "personal_connection_description",
     color: "from-blue-500 to-cyan-500",
   },
 ];
 
 const About = () => {
+  const { t } = useTranslation();
   const sectionRef = useRef<HTMLDivElement>(null);
+  
+  // Get translated values
+  const translatedValues = [
+    {
+      icon: Heart,
+      title: t("about.values.love.title"),
+      description: t("about.values.love.description"),
+      color: "from-pink-500 to-rose-500",
+    },
+    {
+      icon: Lightbulb,
+      title: t("about.values.creativity.title"),
+      description: t("about.values.creativity.description"),
+      color: "from-amber-500 to-orange-500",
+    },
+    {
+      icon: Users,
+      title: t("about.values.connection.title"),
+      description: t("about.values.connection.description"),
+      color: "from-blue-500 to-cyan-500",
+    },
+  ];
+  
+  const storyParagraphs = t("about.story", { returnObjects: true }) as string[];
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start end", "end start"]
@@ -59,7 +85,7 @@ const About = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              The Sisters Behind
+              {t("about.title")}
               <br />
               <motion.span 
                 className="text-gradient-primary inline-block"
@@ -68,16 +94,12 @@ const About = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                the Screen
+                {t("about.titleHighlight")}
               </motion.span>
             </motion.h2>
             
             <div className="space-y-4 text-muted-foreground leading-relaxed">
-              {[
-                "We're two sisters from the beautiful island of Cyprus, united by our love for design and technology. What started as a shared passion has grown into a creative partnership that brings websites and digital experiences to life.",
-                "Working as a duo gives us a unique advantage: two perspectives, double the creativity, and a natural collaboration that our clients love. We bring the best of both worlds – technical precision and creative flair – to every project we take on.",
-                "When we're not coding or designing, you'll find us exploring Cyprus's stunning coastlines, sipping coffee at local cafés, and finding inspiration in the Mediterranean lifestyle that shapes our work."
-              ].map((paragraph, i) => (
+              {storyParagraphs.map((paragraph, i) => (
                 <motion.p
                   key={i}
                   initial={{ opacity: 0, y: 20 }}
@@ -99,7 +121,7 @@ const About = () => {
             transition={{ duration: 0.8, type: "spring", stiffness: 80 }}
             className="space-y-6"
           >
-            {values.map((value, index) => (
+            {translatedValues.map((value, index) => (
               <motion.div
                 key={value.title}
                 initial={{ opacity: 0, y: 30, rotateX: -15 }}

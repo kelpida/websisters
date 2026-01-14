@@ -4,6 +4,7 @@ import { ExternalLink, ArrowLeft, Filter } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import portfolioImage from "@/assets/portfolio-everafterlink.png";
+import SEO from "@/components/SEO";
 
 const categories = ["All", "Websites", "Email Signatures", "Email Solutions"];
 
@@ -85,6 +86,14 @@ const PortfolioPage = () => {
       : projects.filter((p) => p.category === activeCategory);
 
   return (
+    <>
+      <SEO
+        title="Portfolio - Our Work & Projects"
+        description="Explore our portfolio of web development projects, websites, email solutions, and digital designs created for businesses across Cyprus. See our latest work and success stories."
+        keywords="portfolio, web development projects, website designs, email signatures, web design Cyprus, case studies"
+        url="https://websisters.cy/portfolio"
+        type="website"
+      />
     <div className="min-h-screen bg-background">
       {/* Header */}
       <motion.div
@@ -322,6 +331,7 @@ const PortfolioPage = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };
 
