@@ -2,7 +2,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { ExternalLink, ArrowRight, Sparkles } from "lucide-react";
 import { Button } from "./ui/button";
 import { Link } from "react-router-dom";
-import portfolioImage from "@/assets/portfolio-everafter.jpg";
+import portfolioImage from "@/assets/portfolio-everafterlink.png";
 import { useRef } from "react";
 
 const projects = [

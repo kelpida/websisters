@@ -3,9 +3,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ExternalLink, ArrowLeft, Filter } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import portfolioImage from "@/assets/portfolio-everafter.jpg";
+import portfolioImage from "@/assets/portfolio-everafterlink.png";
 
-const categories = ["All", "Websites", "E-Commerce", "Branding", "Email Solutions"];
+const categories = ["All", "Websites", "Email Signatures", "Email Solutions"];
 
 const projects = [
   {
@@ -18,61 +18,61 @@ const projects = [
     tags: ["WordPress", "Custom Design", "Responsive"],
     featured: true,
   },
+{
+  id: 2,
+  title: "The BestProp",
+  category: "Websites",
+  description: "A proprietary trading firm offering funded trading accounts for forex and other financial markets. Traders can complete evaluation challenges to access capital, with competitive profit splits and payout options designed to support performance-based growth.",
+  url: "https://thebestprop.com/",
+  image: null,
+  tags: ["Forex Trading", "Prop Trading", "Funded Accounts", "Profit Split"],
+  featured: false,
+  comingSoon: true,
+},
+{
+  id: 3,
+  title: "Photiou Architects",
+  category: "Websites",
+  description: "An established architectural and design practice based in Limassol, Cyprus, offering comprehensive services from concept design to project delivery. With decades of experience in commercial, residential, hospitality and urban projects, the firm focuses on thoughtful, sustainable, and context-sensitive architecture tailored to client needs.",
+  url: "https://photiouarchitects.com/",
+  image: null,
+  tags: ["Architecture", "Design", "Sustainability", "Project Management"],
+  featured: false,
+  comingSoon: false,
+},
+{
+  id: 4,
+  title: "ATP Properties",
+  category: "Websites",
+  description: "ATP Properties is a boutique real estate development company in Limassol, Cyprus, specializing in luxury residential and commercial projects. The firm focuses on unique architectural design, high-quality materials, advanced security, and comprehensive amenities, delivering bespoke properties that balance sophistication, sustainability, and value for investors and homeowners alike.",  
+  url: "https://www.atp.properties/",
+  image: null,
+  tags: ["Real Estate Development", "Luxury Properties", "Cyprus", "Architecture"],
+  featured: false,
+  comingSoon: false,
+},
+{
+  id: 5,
+  title: "CP Law Firm",
+  category: "Websites",
+  description: "CP Law Firm (C. Pilyugin & Co LLC) is a multidisciplinary law firm based in Limassol, Cyprus offering comprehensive legal, corporate, tax, and advisory services. The firm supports clients with corporate and commercial law, property transactions, immigration and citizenship matters, intellectual property, employment and family law, and international tax planning, delivering tailored solutions for both individuals and businesses.",  
+  url: "https://cplawyers.com/",
+  image: null,
+  tags: ["Law Firm", "Legal Services", "Corporate Law", "Tax & Advisory"],
+  featured: false,
+  comingSoon: false,
+},
   {
-    id: 2,
-    title: "Coastal Living Boutique",
-    category: "E-Commerce",
-    description: "Mediterranean-inspired home décor online store with seamless checkout experience and inventory management.",
-    url: "#",
-    image: null,
-    tags: ["WooCommerce", "Payment Integration", "SEO"],
-    featured: false,
-    comingSoon: true,
-  },
-  {
-    id: 3,
-    title: "Azure Legal Partners",
-    category: "Websites",
-    description: "Professional law firm website with client portal, appointment booking, and case management integration.",
-    url: "#",
-    image: null,
-    tags: ["React", "Portal", "Forms"],
-    featured: false,
-    comingSoon: true,
-  },
-  {
-    id: 4,
-    title: "Sunrise Wellness Studio",
-    category: "Branding",
-    description: "Complete brand identity and website for a holistic wellness center, including booking system.",
-    url: "#",
-    image: null,
-    tags: ["Branding", "UI/UX", "Booking"],
-    featured: false,
-    comingSoon: true,
-  },
-  {
-    id: 5,
-    title: "Corporate Email Suite",
-    category: "Email Solutions",
-    description: "Professional email setup and migration for a 50+ employee company with custom signatures and templates.",
-    url: "#",
-    image: null,
-    tags: ["Email", "Migration", "Templates"],
-    featured: false,
-    comingSoon: true,
-  },
-  {
-    id: 6,
-    title: "Your Project?",
-    category: "Websites",
-    description: "Have an exciting project in mind? Let's collaborate and bring your vision to life together.",
-    url: "/contact",
-    image: null,
-    tags: ["Let's Talk", "Custom", "Tailored"],
-    featured: false,
-    isPlaceholder: true,
-  },
+  id: 6,
+  title: "Pittalis Strawberries",
+  category: "Websites",
+  description: "Pittalis Strawberries is a local Cypriot service that tracks and displays real-time availability of fresh strawberry fridges across Limassol and surrounding areas, helping customers find and access quality strawberries easily. The site lists locations and current stock levels at various pickup points, supporting local produce consumption with up-to-date availability information.",
+  url: "https://pittalisstrawberries.com/",
+  image: null,
+  tags: ["Agriculture", "Local Produce", "Strawberries", "Availability Dashboard"],
+  featured: false,
+  comingSoon: false,
+},
 ];
 
 const PortfolioPage = () => {
