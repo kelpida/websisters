@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ExternalLink, ArrowLeft, Filter } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import portfolioImage from "@/assets/portfolio-everafter.jpg";
+import portfolioImage from "@/assets/portfolio-everafter.png";
 
 const categories = ["All", "Websites", "E-Commerce", "Branding", "Email Solutions"];
 
