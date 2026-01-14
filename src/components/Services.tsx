@@ -72,7 +72,7 @@ const services = [
     ],
     samples: [
       { title: "Managed WordPress", type: "Hosting Plan", url: "#" },
-      { title: "VPS Solutions", type: "Enterprise", url: "#" },
+      { title: "AWS Hosting", type: "Cloud Infrastructure", url: "#" },
     ]
   },
   {
