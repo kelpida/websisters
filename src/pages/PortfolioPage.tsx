@@ -203,11 +203,11 @@ const PortfolioPage = () => {
                     >
                       {/* Image Section */}
                       {project.image ? (
-                        <div className={`relative overflow-hidden ${project.featured ? "h-48 md:h-56" : "h-40"}`}>
+                        <div className={`relative overflow-hidden bg-muted/30 flex items-center justify-center ${project.featured ? "h-48 md:h-56" : "h-40"}`}>
                           <img
                             src={project.image}
                             alt={project.title}
-                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                            className="w-full h-full object-contain p-2 transition-transform duration-700 group-hover:scale-105"
                           />
                           {/* Coming Soon Badge */}
                           {project.comingSoon && (
