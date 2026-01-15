@@ -70,10 +70,10 @@ const Contact = () => {
                 <div>
                   <p className="text-sm text-muted-foreground">{t("contact.phone")}</p>
                   <a 
-                    href="tel:+35799123456" 
+                    href="tel:#" 
                     className="text-foreground font-medium hover:text-primary transition-colors"
                   >
-                    +357 99 123 456
+                    #
                   </a>
                 </div>
               </div>
@@ -85,10 +85,10 @@ const Contact = () => {
                 <div>
                   <p className="text-sm text-muted-foreground">{t("contact.phone")}</p>
                   <a 
-                    href="tel:+35796123456" 
+                    href="tel:#" 
                     className="text-foreground font-medium hover:text-primary transition-colors"
                   >
-                    +357 96 123 456
+                    #
                   </a>
                 </div>
               </div>
@@ -99,7 +99,7 @@ const Contact = () => {
               <p className="text-sm text-muted-foreground text-center mb-4">{t("contact.followUs")}</p>
               <div className="flex justify-center gap-4">
                 <a 
-                  href="https://instagram.com/websisters" 
+                  href="https://instagram.com/#" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="w-12 h-12 rounded-xl bg-card border border-border/50 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all duration-300 text-muted-foreground"
@@ -107,7 +107,7 @@ const Contact = () => {
                   <Instagram size={22} />
                 </a>
                 <a 
-                  href="https://facebook.com/websisters" 
+                  href="https://facebook.com/#" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="w-12 h-12 rounded-xl bg-card border border-border/50 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all duration-300 text-muted-foreground"
@@ -115,7 +115,7 @@ const Contact = () => {
                   <Facebook size={22} />
                 </a>
                 <a 
-                  href="https://linkedin.com/company/websisters" 
+                  href="https://linkedin.com/#" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="w-12 h-12 rounded-xl bg-card border border-border/50 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all duration-300 text-muted-foreground"
