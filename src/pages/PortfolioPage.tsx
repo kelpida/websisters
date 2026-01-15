@@ -79,6 +79,28 @@ const projects = [
   featured: false,
   comingSoon: false,
 },
+{
+  id: 7,
+  title: "Email Signatures",
+  category: "Email Signatures",
+  description: "Professional email signatures that make a lasting impression. We design custom, branded email signatures that work across all email clients and devices.",
+  url: "#",
+  image: null,
+  tags: ["Branding", "Professional", "Custom Design"],
+  featured: false,
+  comingSoon: true,
+},
+{
+  id: 8,
+  title: "Email Solutions",
+  category: "Email Solutions",
+  description: "Complete email solutions including setup, migration, and management. We help businesses streamline their email communications with reliable, secure systems.",
+  url: "#",
+  image: null,
+  tags: ["Email Setup", "Migration", "Management"],
+  featured: false,
+  comingSoon: true,
+},
 ];
 
 const PortfolioPage = () => {
