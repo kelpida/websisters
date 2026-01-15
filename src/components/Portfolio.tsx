@@ -107,57 +107,43 @@ const Portfolio = () => {
               whileHover={{ scale: 1.02 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
-              <div className="relative h-full min-h-[400px] lg:min-h-full rounded-2xl overflow-hidden bg-gradient-hero border border-border/50 shadow-soft group-hover:shadow-glow transition-all duration-500">
-                <motion.img 
-                  src={portfolioImage} 
-                  alt="The Ever After Link project" 
-                  className="absolute inset-0 w-full h-full object-cover"
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ duration: 0.6 }}
-                />
+              <div className="relative h-full min-h-[400px] lg:min-h-full rounded-2xl overflow-hidden bg-card border border-border/50 shadow-soft group-hover:shadow-glow transition-all duration-500 flex flex-col">
+                {/* Image Section */}
+                <div className="relative overflow-hidden bg-muted/30 flex items-center justify-center h-56 lg:h-72">
+                  <motion.img 
+                    src={portfolioImage} 
+                    alt="The Ever After Link project" 
+                    className="w-full h-full object-contain p-4"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.6 }}
+                  />
+                  
+                  {/* Featured Badge */}
+                  <motion.span 
+                    className="absolute top-4 right-4 px-3 py-1 bg-primary rounded-full text-xs font-semibold text-primary-foreground"
+                    animate={{ scale: [1, 1.05, 1] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                  >
+                    ✨ Featured
+                  </motion.span>
+                </div>
                 
-                {/* Animated overlay */}
-                <motion.div 
-                  className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/30 to-transparent"
-                  initial={{ opacity: 0.7 }}
-                  whileHover={{ opacity: 0.85 }}
-                />
-                
-                {/* Shimmer effect on hover */}
-                <motion.div
-                  className="absolute inset-0 opacity-0 group-hover:opacity-100"
-                  style={{
-                    background: "linear-gradient(45deg, transparent 30%, hsl(210 100% 55% / 0.1) 50%, transparent 70%)",
-                    backgroundSize: "200% 200%",
-                  }}
-                  animate={{
-                    backgroundPosition: ["200% 200%", "-200% -200%"],
-                  }}
-                  transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 0.5 }}
-                />
-                
-                <div className="absolute bottom-0 left-0 right-0 p-8">
+                {/* Content Section */}
+                <div className="p-6 lg:p-8 flex flex-col flex-1">
                   <motion.div 
-                    className="flex items-center gap-2 text-primary-foreground text-sm font-medium mb-2"
+                    className="flex items-center gap-2 mb-3"
                     initial={{ y: 20, opacity: 0 }}
                     whileInView={{ y: 0, opacity: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.3 }}
                   >
-                    <span className="px-3 py-1 bg-primary/80 rounded-full backdrop-blur-sm">
+                    <span className="px-3 py-1 bg-primary/20 text-primary rounded-full text-xs font-medium">
                       {projects[0].category}
                     </span>
-                    <motion.span 
-                      className="px-3 py-1 bg-accent/80 rounded-full backdrop-blur-sm"
-                      animate={{ scale: [1, 1.05, 1] }}
-                      transition={{ duration: 2, repeat: Infinity }}
-                    >
-                      Featured
-                    </motion.span>
                   </motion.div>
                   
                   <motion.h3 
-                    className="font-display text-2xl font-bold text-primary-foreground mb-2 group-hover:text-primary transition-colors duration-300"
+                    className="font-display text-xl lg:text-2xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-300"
                     initial={{ y: 20, opacity: 0 }}
                     whileInView={{ y: 0, opacity: 1 }}
                     viewport={{ once: true }}
@@ -167,7 +153,7 @@ const Portfolio = () => {
                   </motion.h3>
                   
                   <motion.p 
-                    className="text-primary-foreground/80 mb-4"
+                    className="text-muted-foreground mb-4 flex-1"
                     initial={{ y: 20, opacity: 0 }}
                     whileInView={{ y: 0, opacity: 1 }}
                     viewport={{ once: true }}
@@ -177,7 +163,7 @@ const Portfolio = () => {
                   </motion.p>
                   
                   <motion.div 
-                    className="flex items-center gap-2 text-primary-foreground font-medium"
+                    className="flex items-center gap-2 text-primary font-medium"
                     initial={{ y: 20, opacity: 0 }}
                     whileInView={{ y: 0, opacity: 1 }}
                     viewport={{ once: true }}
