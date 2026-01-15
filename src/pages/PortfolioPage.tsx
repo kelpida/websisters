@@ -5,6 +5,10 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import portfolioImage from "@/assets/portfolio-everafterlink.png";
 import bestpropImage from "@/assets/portfolio-thebestprop.webp";
+import photiouImage from "@/assets/portfolio-photiou.jpg";
+import atpImage from "@/assets/portfolio-atp.webp";
+import cplawyersImage from "@/assets/portfolio-cplawyers.webp";
+import pittalisImage from "@/assets/portfolio-pittalis.webp";
 import SEO from "@/components/SEO";
 
 const categories = ["All", "Websites", "Email Signatures", "Email Solutions"];
@@ -37,7 +41,7 @@ const projects = [
   category: "Websites",
   description: "An established architectural and design practice based in Limassol, Cyprus, offering comprehensive services from concept design to project delivery. With decades of experience in commercial, residential, hospitality and urban projects, the firm focuses on thoughtful, sustainable, and context-sensitive architecture tailored to client needs.",
   url: "https://photiouarchitects.com/",
-  image: null,
+  image: photiouImage,
   tags: ["Architecture", "Design", "Sustainability", "Project Management"],
   featured: false,
   comingSoon: false,
@@ -48,7 +52,7 @@ const projects = [
   category: "Websites",
   description: "ATP Properties is a boutique real estate development company in Limassol, Cyprus, specializing in luxury residential and commercial projects. The firm focuses on unique architectural design, high-quality materials, advanced security, and comprehensive amenities, delivering bespoke properties that balance sophistication, sustainability, and value for investors and homeowners alike.",  
   url: "https://www.atp.properties/",
-  image: null,
+  image: atpImage,
   tags: ["Real Estate Development", "Luxury Properties", "Cyprus", "Architecture"],
   featured: false,
   comingSoon: false,
@@ -59,7 +63,7 @@ const projects = [
   category: "Websites",
   description: "CP Law Firm (C. Pilyugin & Co LLC) is a multidisciplinary law firm based in Limassol, Cyprus offering comprehensive legal, corporate, tax, and advisory services. The firm supports clients with corporate and commercial law, property transactions, immigration and citizenship matters, intellectual property, employment and family law, and international tax planning, delivering tailored solutions for both individuals and businesses.",  
   url: "https://cplawyers.com/",
-  image: null,
+  image: cplawyersImage,
   tags: ["Law Firm", "Legal Services", "Corporate Law", "Tax & Advisory"],
   featured: false,
   comingSoon: false,
@@ -70,7 +74,7 @@ const projects = [
   category: "Websites",
   description: "Pittalis Strawberries is a local Cypriot service that tracks and displays real-time availability of fresh strawberry fridges across Limassol and surrounding areas, helping customers find and access quality strawberries easily. The site lists locations and current stock levels at various pickup points, supporting local produce consumption with up-to-date availability information.",
   url: "https://pittalisstrawberries.com/",
-  image: null,
+  image: pittalisImage,
   tags: ["Agriculture", "Local Produce", "Strawberries", "Availability Dashboard"],
   featured: false,
   comingSoon: false,
