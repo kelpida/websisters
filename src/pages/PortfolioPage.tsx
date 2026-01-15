@@ -184,7 +184,7 @@ const PortfolioPage = () => {
                   className={`group relative ${project.featured ? "md:col-span-2 lg:col-span-2" : ""}`}
                 >
                   <a
-                    href={project.isPlaceholder ? "#contact" : project.url}
+                    href={project.url}
                     target={project.url.startsWith("http") ? "_blank" : undefined}
                     rel={project.url.startsWith("http") ? "noopener noreferrer" : undefined}
                     className="block h-full"
@@ -207,11 +207,7 @@ const PortfolioPage = () => {
                           <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/40 to-transparent" />
                         </>
                       ) : (
-                        <div className={`absolute inset-0 ${
-                          project.isPlaceholder 
-                            ? "bg-gradient-to-br from-primary/20 via-accent/10 to-secondary"
-                            : "bg-gradient-to-br from-secondary via-muted to-card"
-                        }`}>
+                        <div className="absolute inset-0 bg-gradient-to-br from-secondary via-muted to-card">
                           {/* Decorative elements for placeholder cards */}
                           <div className="absolute inset-0 overflow-hidden">
                             <div className="absolute -top-1/2 -right-1/2 w-full h-full bg-primary/5 rounded-full blur-3xl" />
@@ -281,7 +277,7 @@ const PortfolioPage = () => {
                           <div className={`flex items-center gap-2 text-sm font-medium ${
                             project.image ? "text-white" : "text-primary"
                           }`}>
-                            {project.isPlaceholder ? "Let's Connect" : "View Project"}
+                            View Project
                             <ExternalLink
                               size={16}
                               className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
