@@ -30,7 +30,7 @@ const Hero = () => {
   
   useEffect(() => {
     const timer = setTimeout(() => {
-      setCounts({ years: 5, projects: 50, satisfaction: 100 });
+      setCounts({ years: 10, projects: 20, satisfaction: 100 });
     }, 800);
     return () => clearTimeout(timer);
   }, []);

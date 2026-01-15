@@ -27,7 +27,7 @@ const projects = [
 {
   id: 2,
   title: "The BestProp",
-  category: "Websites",
+  category: "Website, Hosting & Maintenance",
   description: "A proprietary trading firm offering funded trading accounts for forex and other financial markets. Traders can complete evaluation challenges to access capital, with competitive profit splits and payout options designed to support performance-based growth.",
   url: "https://thebestprop.com/",
   image: bestpropImage,
@@ -38,7 +38,7 @@ const projects = [
 {
   id: 3,
   title: "Photiou Architects",
-  category: "Websites",
+  category: "Website",
   description: "An established architectural and design practice based in Limassol, Cyprus, offering comprehensive services from concept design to project delivery. With decades of experience in commercial, residential, hospitality and urban projects, the firm focuses on thoughtful, sustainable, and context-sensitive architecture tailored to client needs.",
   url: "https://photiouarchitects.com/",
   image: photiouImage,
@@ -49,7 +49,7 @@ const projects = [
 {
   id: 4,
   title: "ATP Properties",
-  category: "Websites",
+  category: "Website, Hosting & Maintenance",
   description: "ATP Properties is a boutique real estate development company in Limassol, Cyprus, specializing in luxury residential and commercial projects. The firm focuses on unique architectural design, high-quality materials, advanced security, and comprehensive amenities, delivering bespoke properties that balance sophistication, sustainability, and value for investors and homeowners alike.",  
   url: "https://www.atp.properties/",
   image: atpImage,
@@ -60,7 +60,7 @@ const projects = [
 {
   id: 5,
   title: "CP Law Firm",
-  category: "Websites",
+  category: "Website, Hosting & Maintenance",
   description: "CP Law Firm (C. Pilyugin & Co LLC) is a multidisciplinary law firm based in Limassol, Cyprus offering comprehensive legal, corporate, tax, and advisory services. The firm supports clients with corporate and commercial law, property transactions, immigration and citizenship matters, intellectual property, employment and family law, and international tax planning, delivering tailored solutions for both individuals and businesses.",  
   url: "https://cplawyers.com/",
   image: cplawyersImage,
@@ -71,7 +71,7 @@ const projects = [
   {
   id: 6,
   title: "Pittalis Strawberries",
-  category: "Websites",
+  category: "Website, Hosting & Maintenance",
   description: "Pittalis Strawberries is a local Cypriot service that tracks and displays real-time availability of fresh strawberry fridges across Limassol and surrounding areas, helping customers find and access quality strawberries easily. The site lists locations and current stock levels at various pickup points, supporting local produce consumption with up-to-date availability information.",
   url: "https://pittalisstrawberries.com/",
   image: pittalisImage,
