@@ -173,7 +173,7 @@ const PortfolioPage = () => {
         <div className="container mx-auto px-6">
           <motion.div 
             layout
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-fr"
           >
             <AnimatePresence mode="popLayout">
               {filteredProjects.map((project, index) => (
@@ -195,7 +195,7 @@ const PortfolioPage = () => {
                     className="block h-full"
                   >
                     <div
-                      className={`relative overflow-hidden rounded-2xl border border-border/50 bg-card transition-all duration-500 flex flex-col ${
+                      className={`relative overflow-hidden rounded-2xl border border-border/50 bg-card transition-all duration-500 flex flex-col h-full ${
                         hoveredId === project.id
                           ? "shadow-elevated border-primary/30 scale-[1.02]"
                           : "shadow-soft"
