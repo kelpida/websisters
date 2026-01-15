@@ -277,7 +277,7 @@ const PortfolioPage = () => {
                           {project.title}
                         </h3>
                         
-                        <p className="text-sm text-muted-foreground mb-4 line-clamp-2 flex-1">
+                        <p className="text-sm text-muted-foreground mb-4 flex-1">
                           {project.description}
                         </p>
 
