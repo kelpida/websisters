@@ -4,6 +4,7 @@ import { ExternalLink, ArrowLeft, Filter } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import portfolioImage from "@/assets/portfolio-everafterlink.png";
+import bestpropImage from "@/assets/portfolio-thebestprop.webp";
 import SEO from "@/components/SEO";
 
 const categories = ["All", "Websites", "Email Signatures", "Email Solutions"];
@@ -25,7 +26,7 @@ const projects = [
   category: "Websites",
   description: "A proprietary trading firm offering funded trading accounts for forex and other financial markets. Traders can complete evaluation challenges to access capital, with competitive profit splits and payout options designed to support performance-based growth.",
   url: "https://thebestprop.com/",
-  image: null,
+  image: bestpropImage,
   tags: ["Forex Trading", "Prop Trading", "Funded Accounts", "Profit Split"],
   featured: false,
   comingSoon: true,
