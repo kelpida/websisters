@@ -205,7 +205,7 @@ const PortfolioPage = () => {
                             alt={project.title}
                             className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                           />
-                          <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/40 to-transparent" />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/20" />
                         </>
                       ) : (
                         <div className="absolute inset-0 bg-gradient-to-br from-secondary via-muted to-card">
