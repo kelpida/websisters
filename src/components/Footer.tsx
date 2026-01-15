@@ -34,7 +34,7 @@ const Footer = () => {
           </nav>
 
           <p className="text-muted-foreground text-sm">
-            © {currentYear} WebSisters. {t("footer.madeWith")}
+            © {currentYear} WebSisters. Made with <span className="text-primary">❤️</span>
           </p>
         </motion.div>
       </div>
