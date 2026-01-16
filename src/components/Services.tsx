@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { Code, Server, Palette, Mail, ExternalLink, CheckCircle, Handshake } from "lucide-react";
+import { Code, Server, Palette, Mail, ExternalLink, CheckCircle, Handshake, Star } from "lucide-react";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "./ui/dialog";
@@ -18,6 +18,7 @@ interface Service {
   features: string[];
   samples: { title: string; type: string; url: string }[];
   isPartnerService?: boolean;
+  isFeatured?: boolean;
   partners?: Partner[];
   key: string;
 }
@@ -30,6 +31,7 @@ const getServices = (t: any): Service[] => [
     fullDescription: t("services.webDevelopment.fullDescription"),
     features: t("services.webDevelopment.features", { returnObjects: true }),
     key: "webDevelopment",
+    isFeatured: true,
     samples: [
       { title: "The Ever After Link", type: "Wedding Platform", url: "https://theeverafterlink.com" },
       { title: "ATP Properties", type: "Real Estate", url: "https://www.atp.properties/" },
@@ -42,6 +44,7 @@ const getServices = (t: any): Service[] => [
     fullDescription: t("services.hostingMaintenance.fullDescription"),
     features: t("services.hostingMaintenance.features", { returnObjects: true }),
     key: "hostingMaintenance",
+    isFeatured: true,
     samples: [
       { title: "Managed WordPress", type: "Hosting Plan", url: "#" },
       { title: "Cloud Hosting", type: "Cloud Infrastructure", url: "#" },
@@ -176,8 +179,18 @@ const Services = () => {
                 transition: { type: "spring", stiffness: 400, damping: 17 }
               }}
               onClick={() => setSelectedService(service)}
-              className="group relative p-8 bg-background rounded-2xl shadow-soft border border-border/50 overflow-hidden cursor-pointer"
+              className={`group relative p-8 bg-background rounded-2xl shadow-soft border overflow-hidden cursor-pointer ${
+                service.isFeatured ? 'border-primary/30 ring-1 ring-primary/20' : 'border-border/50'
+              }`}
             >
+              {/* Featured badge */}
+              {service.isFeatured && (
+                <div className="absolute top-4 right-4 z-20 flex items-center gap-1 px-2.5 py-1 bg-primary/10 text-primary text-xs font-medium rounded-full">
+                  <Star size={12} className="fill-primary" />
+                  {t("services.featured") || "Core Service"}
+                </div>
+              )}
+
               {/* Hover glow effect */}
               <motion.div
                 className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
@@ -209,7 +222,7 @@ const Services = () => {
                 {service.title}
               </h3>
               
-              <p className="relative z-10 text-muted-foreground leading-relaxed group-hover:text-foreground/70 transition-colors duration-300">
+              <p className="relative z-10 text-muted-foreground leading-relaxed group-hover:text-foreground/70 transition-colors duration-300 pr-8">
                 {service.description}
               </p>
 
