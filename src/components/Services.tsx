@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { Code, Mail, Server, Newspaper, Settings, Palette, X, ExternalLink, CheckCircle, Handshake } from "lucide-react";
+import { Code, Server, Palette, Mail, ExternalLink, CheckCircle, Handshake, Star } from "lucide-react";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "./ui/dialog";
@@ -18,6 +18,7 @@ interface Service {
   features: string[];
   samples: { title: string; type: string; url: string }[];
   isPartnerService?: boolean;
+  isFeatured?: boolean;
   partners?: Partner[];
   key: string;
 }
@@ -30,21 +31,10 @@ const getServices = (t: any): Service[] => [
     fullDescription: t("services.webDevelopment.fullDescription"),
     features: t("services.webDevelopment.features", { returnObjects: true }),
     key: "webDevelopment",
+    isFeatured: true,
     samples: [
       { title: "The Ever After Link", type: "Wedding Platform", url: "https://theeverafterlink.com" },
-      { title: "E-Commerce Store", type: "Online Shop", url: "#" },
-    ]
-  },
-  {
-    icon: Mail,
-    title: t("services.emailSignatures.title"),
-    description: t("services.emailSignatures.description"),
-    fullDescription: t("services.emailSignatures.fullDescription"),
-    features: t("services.emailSignatures.features", { returnObjects: true }),
-    key: "emailSignatures",
-    samples: [
-      { title: "Corporate Signature", type: "Professional", url: "#" },
-      { title: "Creative Signature", type: "Modern Design", url: "#" },
+      { title: "ATP Properties", type: "Real Estate", url: "https://www.atp.properties/" },
     ]
   },
   {
@@ -54,50 +44,44 @@ const getServices = (t: any): Service[] => [
     fullDescription: t("services.hostingMaintenance.fullDescription"),
     features: t("services.hostingMaintenance.features", { returnObjects: true }),
     key: "hostingMaintenance",
+    isFeatured: true,
     samples: [
       { title: "Managed WordPress", type: "Hosting Plan", url: "#" },
-      { title: "AWS Hosting", type: "Cloud Infrastructure", url: "#" },
-    ]
-  },
-  {
-    icon: Newspaper,
-    title: t("services.newsletterDesign.title"),
-    description: t("services.newsletterDesign.description"),
-    fullDescription: t("services.newsletterDesign.fullDescription"),
-    features: t("services.newsletterDesign.features", { returnObjects: true }),
-    key: "newsletterDesign",
-    samples: [
-      { title: "Monthly Digest", type: "Newsletter Template", url: "#" },
-      { title: "Product Launch", type: "Campaign Design", url: "#" },
-    ]
-  },
-  {
-    icon: Settings,
-    title: t("services.emailSetup.title"),
-    description: t("services.emailSetup.description"),
-    fullDescription: t("services.emailSetup.fullDescription"),
-    features: t("services.emailSetup.features", { returnObjects: true }),
-    key: "emailSetup",
-    samples: [
-      { title: "Google Workspace", type: "Business Email", url: "#" },
-      { title: "Microsoft 365", type: "Enterprise Solution", url: "#" },
+      { title: "Cloud Hosting", type: "Cloud Infrastructure", url: "#" },
     ]
   },
   {
     icon: Palette,
-    title: t("services.brandIdentity.title"),
-    description: t("services.brandIdentity.description"),
-    fullDescription: t("services.brandIdentity.fullDescription"),
-    features: t("services.brandIdentity.features", { returnObjects: true }),
-    key: "brandIdentity",
+    title: t("services.webDesign.title"),
+    description: t("services.webDesign.description"),
+    fullDescription: t("services.webDesign.fullDescription"),
+    features: t("services.webDesign.features", { returnObjects: true }),
+    key: "webDesign",
     samples: [
-      { title: "Startup Branding", type: "Complete Package", url: "#" },
-      { title: "Logo Redesign", type: "Brand Refresh", url: "#" },
+      { title: "Photiou Architects", type: "Architecture Firm", url: "https://photiouarchitects.com/" },
+      { title: "CP Law Firm", type: "Legal Services", url: "https://cplawyers.com/" },
     ],
     isPartnerService: true,
     partners: [
-      { name: "Partner 1", logo: "/partner-logo-1.png" },
-      { name: "Partner 2", logo: "/partner-logo-2.png" },
+      { name: "PixelCraft Studio", logo: "https://ui-avatars.com/api/?name=PC&background=6366f1&color=fff&size=128&font-size=0.4&bold=true" },
+      { name: "Creative Labs", logo: "https://ui-avatars.com/api/?name=CL&background=ec4899&color=fff&size=128&font-size=0.4&bold=true" },
+    ]
+  },
+  {
+    icon: Mail,
+    title: t("services.emailSignaturesNewsletters.title"),
+    description: t("services.emailSignaturesNewsletters.description"),
+    fullDescription: t("services.emailSignaturesNewsletters.fullDescription"),
+    features: t("services.emailSignaturesNewsletters.features", { returnObjects: true }),
+    key: "emailSignaturesNewsletters",
+    samples: [
+      { title: "Corporate Signature", type: "Professional", url: "#" },
+      { title: "Newsletter Template", type: "Email Campaign", url: "#" },
+    ],
+    isPartnerService: true,
+    partners: [
+      { name: "MailFlow Design", logo: "https://ui-avatars.com/api/?name=MF&background=14b8a6&color=fff&size=128&font-size=0.4&bold=true" },
+      { name: "SignaturePro", logo: "https://ui-avatars.com/api/?name=SP&background=f59e0b&color=fff&size=128&font-size=0.4&bold=true" },
     ]
   },
 ];
@@ -195,8 +179,18 @@ const Services = () => {
                 transition: { type: "spring", stiffness: 400, damping: 17 }
               }}
               onClick={() => setSelectedService(service)}
-              className="group relative p-8 bg-background rounded-2xl shadow-soft border border-border/50 overflow-hidden cursor-pointer"
+              className={`group relative p-8 bg-background rounded-2xl shadow-soft border overflow-hidden cursor-pointer ${
+                service.isFeatured ? 'border-primary/30 ring-1 ring-primary/20' : 'border-border/50'
+              }`}
             >
+              {/* Featured badge */}
+              {service.isFeatured && (
+                <div className="absolute top-4 right-4 z-20 flex items-center gap-1 px-2.5 py-1 bg-primary/10 text-primary text-xs font-medium rounded-full">
+                  <Star size={12} className="fill-primary" />
+                  {t("services.featured") || "Core Service"}
+                </div>
+              )}
+
               {/* Hover glow effect */}
               <motion.div
                 className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
@@ -228,7 +222,7 @@ const Services = () => {
                 {service.title}
               </h3>
               
-              <p className="relative z-10 text-muted-foreground leading-relaxed group-hover:text-foreground/70 transition-colors duration-300">
+              <p className="relative z-10 text-muted-foreground leading-relaxed group-hover:text-foreground/70 transition-colors duration-300 pr-8">
                 {service.description}
               </p>
 
