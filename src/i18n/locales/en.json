@@ -75,34 +75,12 @@
       "description": "Professional email signatures and newsletter templates that make every communication an opportunity to impress.",
       "fullDescription": "Transform every email into a branding opportunity. We work with our partners to create professionally designed email signatures and newsletter templates that work perfectly across all email clients and devices.",
       "features": [
-<<<<<<< HEAD
-        "Custom domain email (you@yourbusiness.com)",
-        "Google Workspace / Microsoft 365 setup",
-        "SPF, DKIM, DMARC configuration",
-        "Spam & phishing protection",
-        "Email forwarding & aliases",
-        "Multi-device configuration"
-      ]
-    },
-    "brandIdentity": {
-      "title": "Web Design",
-      "description": "Logo design and web design packages through our trusted creative partners who share our standards.",
-      "fullDescription": "While we focus on web development and digital solutions, we work closely with trusted creative partners to deliver exceptional brand identities. This collaboration ensures you get specialized expertise while we manage the entire process seamlessly.",
-      "features": [
-        "Custom logo design",
-        "Color palette & typography",
-        "Brand style guidelines",
-        "Business card design",
-        "Social media assets",
-        "Brand collateral templates"
-=======
         "Responsive design for all devices",
         "Gmail, Outlook, Apple Mail compatible",
         "Social media integration",
         "Call-to-action buttons",
         "Newsletter template design",
         "Campaign setup and automation"
->>>>>>> 41bb2d4453433346b1f4a0ea2e7b2ab72ac5167c
       ]
     },
     "partnerServiceNotice": "This service is delivered in close collaboration with our trusted partners who share our commitment to quality and excellence.",
