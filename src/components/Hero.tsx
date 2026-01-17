@@ -198,7 +198,7 @@ const Hero = () => {
             className="mt-14"
           >
             <p className="text-sm text-muted-foreground mb-4">Technologies we work with</p>
-            <div className="flex flex-wrap justify-center gap-3">
+            <div className="flex flex-wrap justify-center gap-2">
               {["WordPress", "Laravel", "React", "Next.js", "Tailwind CSS", "PHP", "TypeScript"].map((tech, i) => (
                 <motion.span 
                   key={tech}
@@ -221,7 +221,7 @@ const Hero = () => {
           {/* Animated Stats */}
           <motion.div
             variants={itemVariants}
-            className="mt-12 grid grid-cols-3 gap-8 max-w-md mx-auto"
+            className="mt-12 pb-4 grid grid-cols-3 gap-8 max-w-md mx-auto"
           >
             {[
               { value: counts.years, suffix: "+", label: "Years Experience" },

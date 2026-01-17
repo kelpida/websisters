@@ -235,7 +235,7 @@ const PortfolioPage = () => {
 
       {/* Filter Section */}
       <section className="py-8 border-b border-border/50 sticky top-[73px] z-40 bg-background/95 backdrop-blur-sm">
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-2">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -262,7 +262,7 @@ const PortfolioPage = () => {
 
       {/* Projects Grid */}
       <section className="py-16">
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-2">
           <motion.div 
             layout
             className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-fr"
@@ -348,7 +348,7 @@ const PortfolioPage = () => {
                       )}
 
                       {/* Content Section */}
-                      <div className="p-5 md:p-6 flex flex-col flex-1">
+                      <div className="p-3 md:p-6 flex flex-col flex-1">
                         <div className="flex items-center gap-2 mb-3">
                           <span className="px-3 py-1 rounded-full text-xs font-medium bg-primary/20 text-primary">
                             {project.category}
@@ -382,7 +382,7 @@ const PortfolioPage = () => {
 
                         {/* Link */}
                         {!project.comingSoon && (
-                          <div className="d-flex align-items-center">
+                          <div className="d-flex align-items-center flex-wrap justify-between mt-auto">
                           <div className="flex items-center gap-2 text-sm font-medium text-primary">
                             View Project
                             <ExternalLink
@@ -395,7 +395,7 @@ const PortfolioPage = () => {
                           {project.partner && project.partnerLogo && (
                             <Link to={project.partnerUrl} target="_blank" rel="noopener noreferrer">
                             <div className="absolute bottom-3 right-3 px-2 py-1.5 bg-accent/95 backdrop-blur-sm rounded-full flex items-center justify-center shadow-md">
-                              <p className="text-xs font-medium mr-2">UX/UI Partner with</p> <img 
+                              <p className="text-xs font-medium mr-1">UX/UI Partner with</p> <img 
                                 src={project.partnerLogo} 
                                 alt="Partner" 
                                 className="h-5 w-auto object-contain"
