@@ -15,22 +15,23 @@
     "email": "Email",
     "phone": "Phone"
   },
-  "hero": {
-    "badge": "Your Web, Our Expertise",
-    "title": "We Build Beautiful",
-    "titleHighlight": "Digital Experiences",
-    "subtitle": "We're a  duo crafting stunning websites,for businesses ready to shine online.",
-    "cta": "Start Your Project",
-    "ctaSecondary": "View Our Work",
-    "stats": {
-      "years": "Years of Experience",
-      "projects": "Projects Completed",
-      "satisfaction": "Client Satisfaction %"
-    }
-  },
+"hero": {
+  "badge": "Web Development Experts",
+  "title": "We Build Robust",
+  "titleHighlight": "Web Solutions",
+  "subtitle": "We are a web development duo specialising in fast, secure, and scalable websites and applications for businesses ready to grow online.",
+  "cta": "Start Your Project",
+  "ctaSecondary": "View Our Work",
+  "stats": {
+    "years": "Years of Experience",
+    "projects": "Projects Delivered",
+    "satisfaction": "Client Satisfaction %"
+  }
+},
   "services": {
     "title": "Our Services",
     "description": "From concept to launch and beyond, we provide everything you need for a successful online presence.",
+    "getStarted": "Get Started",
     "webDevelopment": {
       "title": "Web Development",
       "description": "From WordPress sites to custom web apps with Laravel, React, Next.js & Tailwind. We build what your business needs.",
@@ -58,7 +59,7 @@
       ]
     },
     "webDesign": {
-      "title": "Web Design",
+      "title": "UX/UI Design",
       "description": "Beautiful, user-friendly designs that capture your brand essence and engage your audience effectively.",
       "fullDescription": "We work closely with our creative partners to deliver exceptional web designs that combine aesthetics with functionality. Every design is crafted to reflect your brand identity and provide an outstanding user experience.",
       "features": [
@@ -91,29 +92,30 @@
     "learnMore": "Learn More",
     "close": "Close"
   },
-  "about": {
-    "title": "The Sisters Behind",
-    "titleHighlight": "the Screen",
-    "story": [
-      "We're two sisters, united by our love for design and technology. What started as a shared passion has grown into a creative partnership that brings websites and digital experiences to life.",
-      "Working as a duo gives us a unique advantage: two perspectives, double the creativity, and a natural collaboration that our clients love. We bring the best of both worlds – technical precision and creative flair – to every project we take on.",
-      "When we're not coding or designing, you'll find us exploring Cyprus's stunning coastlines, sipping coffee at local cafés, and finding inspiration in the Mediterranean lifestyle that shapes our work."
-    ],
-    "values": {
-      "love": {
-        "title": "Made with Love",
-        "description": "Every project gets our full dedication and personal touch."
-      },
-      "creativity": {
-        "title": "Creative Solutions",
-        "description": "We blend creativity with technical expertise for unique results."
-      },
-      "connection": {
-        "title": "Personal Connection",
-        "description": "We work closely with you, understanding your vision and goals."
-      }
+"about": {
+  "title": "The Experts Behind",
+  "titleHighlight": "the Code",
+  "story": [
+    "We are two sisters specialising in web development, building reliable and high-performing digital solutions for modern businesses.",
+    "Our strength lies in turning complex requirements into clean, scalable, and maintainable systems. By working as a close-knit duo, we ensure efficiency, consistency, and attention to detail throughout every stage of development.",
+    "Based in Cyprus, we work with businesses locally and internationally, delivering solutions that are technically sound, future-ready, and aligned with real business goals."
+  ],
+  "values": {
+    "love": {
+      "title": "Quality-Driven Development",
+      "description": "We write clean, maintainable code with a strong focus on performance and security."
+    },
+    "creativity": {
+      "title": "Problem-Solving Mindset",
+      "description": "We approach every project analytically, finding the most effective technical solutions."
+    },
+    "connection": {
+      "title": "Clear Communication",
+      "description": "We work closely with clients to translate business needs into practical, scalable web solutions."
     }
-  },
+  }
+},
+
   "portfolio": {
     "title": "Our Work",
     "description": "Projects we've brought to life with passion and precision.",

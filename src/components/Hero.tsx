@@ -136,7 +136,7 @@ const Hero = () => {
 
           <motion.h1
             variants={itemVariants}
-            className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6 leading-tight"
+            className="font-display text-3xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6 leading-tight"
           >
             {t("hero.title")}
             <br />
@@ -253,9 +253,9 @@ const Hero = () => {
         </motion.div>
       </div>
 
-      {/* Scroll indicator */}
-      <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+      {/* Scroll indicator - hidden on mobile/tablet */}
+      {/* <motion.div
+        className="hidden md:flex absolute bottom-12 left-1/2 -translate-x-1/2"
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
       >
@@ -266,7 +266,7 @@ const Hero = () => {
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           />
         </div>
-      </motion.div>
+      </motion.div> */}
     </section>
   );
 };

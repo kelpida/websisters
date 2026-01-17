@@ -8,53 +8,54 @@ const Testimonials = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const testimonials = [
+ 
     {
-      name: "Sarah Mitchell",
-      role: "Founder, Bloom Boutique",
+      name: "C.Pilyugin",
+      role: "Managing Partner, CP Law Firm",
       image: null,
       rating: 5,
-      text: "Working with these sisters was an absolute dream! They transformed my vision into a stunning website that perfectly captures my brand. The attention to detail and creative solutions exceeded all my expectations.",
-      project: "E-Commerce Website"
+      text: "Our law firm needed a website that conveyed authority and trust. WebSisters delivered exactly that - a professional, well-structured site that has significantly increased our client inquiries. Outstanding work.",
+      project: "CP Law Firm"
     },
     {
-      name: "Michael Chen",
-      role: "CEO, TechStart Solutions",
+      name: "Prothiereas Olive Oil",
+      role: "CEO, Prothiereas Olive Oil",
       image: null,
       rating: 5,
-      text: "Professional, responsive, and incredibly talented. They delivered our web application on time and the quality was outstanding. Our conversion rates have increased by 40% since launch!",
-      project: "Web Application"
+      text: "They created a beautiful online presence for our premium olive oil brand. The site perfectly captures our heritage and sustainability values. We've seen great engagement from international customers.",
+      project: "Prothiereas Olive Oil"
     },
     {
-      name: "Emma Rodriguez",
-      role: "Marketing Director, Coastal Events",
+      name: "Christakis Pavlou",
+      role: "Owner, Christakis Pavlou & Son Auto Services",
       image: null,
       rating: 5,
-      text: "The email signatures and newsletter templates they created for us are absolutely gorgeous. Every client compliments our professional branding. Highly recommend their services!",
-      project: "Email & Newsletter Design"
+      text: "WebSisters built us a clean, professional website that showcases our automotive services perfectly. Customer feedback has been fantastic, and we've received more service bookings online than ever before.",
+      project: "Christakis Pavlou & Son"
     },
     {
-      name: "David Thompson",
-      role: "Owner, Cyprus Eats Restaurant",
+      name: "Evros Pittalis",
+      role: "Founder, Pittalis Strawberries",
       image: null,
       rating: 5,
-      text: "They understood exactly what we needed for our restaurant website. The online ordering system works flawlessly and our customers love it. Best investment we've made for our business.",
-      project: "Restaurant Website"
+      text: "The real-time availability tracking system they developed is exactly what our local business needed. It's user-friendly and our customers love being able to find fresh strawberries instantly. Game-changer!",
+      project: "Pittalis Strawberries"
     },
     {
-      name: "Lisa Anderson",
-      role: "Photographer, Light & Shadow Studio",
+      name: "Aimilia Anastasiou",
+      role: "Architect Engineer, Anastasiou Architects",
       image: null,
       rating: 5,
-      text: "My portfolio website is absolutely stunning! They captured my artistic style perfectly and the site loads incredibly fast. I've received so many compliments from potential clients.",
-      project: "Portfolio Website"
+      text: "Working with WebSisters and their design partners was fantastic. They created a website that truly reflects the creative quality of our work. The UX/UI is intuitive and the design is elegant.",
+      project: "Anastasiou Architects"
     },
     {
-      name: "James Wilson",
-      role: "Director, GreenPath Consulting",
+      name: "2Squared Studio",
+      role: "Design Partners",
       image: null,
       rating: 5,
-      text: "From domain setup to email configuration, they handled everything professionally. Our business now looks more credible than ever. The ongoing support has been exceptional.",
-      project: "Complete Digital Setup"
+      text: "WebSisters is a fantastic partner to collaborate with. Their technical expertise combined with attention to detail makes bringing design visions to life seamless. Together, we've created outstanding digital experiences for our shared clients.",
+      project: "Partnership Collaboration"
     },
   ];
 
@@ -283,7 +284,7 @@ const Testimonials = () => {
         >
           <div className="inline-flex items-center gap-8 px-8 py-4 rounded-full bg-secondary/50 border border-border/50">
             <div className="text-center">
-              <div className="font-display text-2xl font-bold text-foreground">50+</div>
+              <div className="font-display text-2xl font-bold text-foreground">20+</div>
               <div className="text-xs text-muted-foreground">Happy Clients</div>
             </div>
             <div className="w-px h-8 bg-border" />

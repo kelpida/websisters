@@ -59,12 +59,11 @@ const getServices = (t: any): Service[] => [
     key: "webDesign",
     samples: [
       { title: "Photiou Architects", type: "Architecture Firm", url: "https://photiouarchitects.com/" },
-      { title: "CP Law Firm", type: "Legal Services", url: "https://cplawyers.com/" },
+      { title: "The Best Prop", type: "Forex", url: "https://thebestprop.com" },
     ],
     isPartnerService: true,
     partners: [
-      { name: "PixelCraft Studio", logo: "https://ui-avatars.com/api/?name=PC&background=6366f1&color=fff&size=128&font-size=0.4&bold=true" },
-      { name: "Creative Labs", logo: "https://ui-avatars.com/api/?name=CL&background=ec4899&color=fff&size=128&font-size=0.4&bold=true" },
+      { name: "2squaredstudio", logo: "../../assets/2squaredstudio-logo.png" },
     ]
   },
   {
@@ -80,8 +79,7 @@ const getServices = (t: any): Service[] => [
     ],
     isPartnerService: true,
     partners: [
-      { name: "MailFlow Design", logo: "https://ui-avatars.com/api/?name=MF&background=14b8a6&color=fff&size=128&font-size=0.4&bold=true" },
-      { name: "SignaturePro", logo: "https://ui-avatars.com/api/?name=SP&background=f59e0b&color=fff&size=128&font-size=0.4&bold=true" },
+      { name: "2squaredstudio", logo: "../../assets/2squaredstudio-logo.png" },
     ]
   },
 ];

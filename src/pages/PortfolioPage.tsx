@@ -4,103 +4,173 @@ import { ExternalLink, ArrowLeft, Filter } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import portfolioImage from "@/assets/portfolio-everafterlink.png";
-import bestpropImage from "@/assets/portfolio-thebestprop.webp";
-import photiouImage from "@/assets/portfolio-photiou.jpg";
+import bestpropImage from "@/assets/thebestprop.svg";
+import photiouImage from "@/assets/photiou.png";
 import atpImage from "@/assets/portfolio-atp.webp";
 import cplawyersImage from "@/assets/portfolio-cplawyers.webp";
 import pittalisImage from "@/assets/portfolio-pittalis.webp";
+import cpkImage from "@/assets/portfolio-cpk.png";
+import prothiereasImage from "@/assets/portfolio-prothiereas.webp";
+import anastasiouImage from "@/assets/anastasiou-architects.png";
+import malactosImage from "@/assets/malactosinsurance.png";
+import burrowCapitalImage from "@/assets/burrowcapital.svg";
+import partnerLogoImage from "@/assets/2squaredstudio.png";
 import SEO from "@/components/SEO";
 
 const categories = ["All", "Websites", "Email Signatures", "Email Solutions"];
 
 const projects = [
   {
-    id: 1,
-    title: "The Ever After Link",
-    category: "Websites",
-    description: "A stunning wedding planning and vendor connection platform helping couples create their perfect day with ease and elegance.",
-    url: "https://theeverafterlink.com/",
-    image: portfolioImage,
-    tags: ["WordPress", "Custom Design", "Responsive"],
-    featured: true,
+    "id": 1,
+    "title": "The Ever After Link",
+    "category": "Websites",
+    "description": "A curated wedding platform connecting couples with trusted vendors across Cyprus. The Ever After Link simplifies wedding planning through elegant design, intuitive navigation, and seamless vendor discovery.",
+    "url": "https://theeverafterlink.com/",
+    "image": portfolioImage,
+    "tags": ["WordPress", "Wedding Platform", "Vendor Directory", "Custom UI", "Responsive Design"],
+    "featured": true,
   },
-{
-  id: 2,
-  title: "The BestProp",
-  category: "Website, Hosting & Maintenance",
-  description: "A proprietary trading firm offering funded trading accounts for forex and other financial markets. Traders can complete evaluation challenges to access capital, with competitive profit splits and payout options designed to support performance-based growth.",
-  url: "https://thebestprop.com/",
-  image: bestpropImage,
-  tags: ["Forex Trading", "Prop Trading", "Funded Accounts", "Profit Split"],
-  featured: false,
-  comingSoon: true,
-},
-{
-  id: 3,
-  title: "Photiou Architects",
-  category: "Website",
-  description: "An established architectural and design practice based in Limassol, Cyprus, offering comprehensive services from concept design to project delivery. With decades of experience in commercial, residential, hospitality and urban projects, the firm focuses on thoughtful, sustainable, and context-sensitive architecture tailored to client needs.",
-  url: "https://photiouarchitects.com/",
-  image: photiouImage,
-  tags: ["Architecture", "Design", "Sustainability", "Project Management"],
-  featured: false,
-  comingSoon: false,
-},
-{
-  id: 4,
-  title: "ATP Properties",
-  category: "Website, Hosting & Maintenance",
-  description: "ATP Properties is a boutique real estate development company in Limassol, Cyprus, specializing in luxury residential and commercial projects. The firm focuses on unique architectural design, high-quality materials, advanced security, and comprehensive amenities, delivering bespoke properties that balance sophistication, sustainability, and value for investors and homeowners alike.",  
-  url: "https://www.atp.properties/",
-  image: atpImage,
-  tags: ["Real Estate Development", "Luxury Properties", "Cyprus", "Architecture"],
-  featured: false,
-  comingSoon: false,
-},
-{
-  id: 5,
-  title: "CP Law Firm",
-  category: "Website, Hosting & Maintenance",
-  description: "CP Law Firm (C. Pilyugin & Co LLC) is a multidisciplinary law firm based in Limassol, Cyprus offering comprehensive legal, corporate, tax, and advisory services. The firm supports clients with corporate and commercial law, property transactions, immigration and citizenship matters, intellectual property, employment and family law, and international tax planning, delivering tailored solutions for both individuals and businesses.",  
-  url: "https://cplawyers.com/",
-  image: cplawyersImage,
-  tags: ["Law Firm", "Legal Services", "Corporate Law", "Tax & Advisory"],
-  featured: false,
-  comingSoon: false,
-},
   {
-  id: 6,
-  title: "Pittalis Strawberries",
-  category: "Website, Hosting & Maintenance",
-  description: "Pittalis Strawberries is a local Cypriot service that tracks and displays real-time availability of fresh strawberry fridges across Limassol and surrounding areas, helping customers find and access quality strawberries easily. The site lists locations and current stock levels at various pickup points, supporting local produce consumption with up-to-date availability information.",
-  url: "https://pittalisstrawberries.com/",
-  image: pittalisImage,
-  tags: ["Agriculture", "Local Produce", "Strawberries", "Availability Dashboard"],
-  featured: false,
-  comingSoon: false,
-},
-{
-  id: 7,
-  title: "Email Signatures",
-  category: "Email Signatures",
-  description: "Professional email signatures that make a lasting impression. We design custom, branded email signatures that work across all email clients and devices.",
-  url: "#",
-  image: null,
-  tags: ["Branding", "Professional", "Custom Design"],
-  featured: false,
-  comingSoon: true,
-},
-{
-  id: 8,
-  title: "Email Solutions",
-  category: "Email Solutions",
-  description: "Complete email solutions including setup, migration, and management. We help businesses streamline their email communications with reliable, secure systems.",
-  url: "#",
-  image: null,
-  tags: ["Email Setup", "Migration", "Management"],
-  featured: false,
-  comingSoon: true,
-},
+    "id": 2,
+    "title": "Malactos Insurance",
+    "category": "Websites",
+    "description": "A modern corporate website for Malactos Insurance, presenting insurance products and services with clarity and professionalism while focusing on trust, accessibility, and clear communication.",
+    "url": "https://staging.malactosinsurance.com/",
+    "image": malactosImage,
+    "tags": ["Insurance", "Corporate Website", "WordPress", "Business Services", "Responsive Design"],
+    "featured": false,
+    "comingSoon": true,
+    },
+  {
+    "id": 3,
+    "title": "The BestProp",
+    "category": "Websites",
+    "description": "A high-performance website for a proprietary trading firm offering funded forex trading accounts, clearly communicating evaluation challenges, trading rules, and profit splits.",
+    "url": "https://thebestprop.com/",
+    "image": bestpropImage,
+    "tags": ["Prop Trading", "Forex", "FinTech", "Landing Pages", "Performance UX"],
+    "featured": false,
+    "comingSoon": false,
+    "partner": true,
+    "partnerLogo": partnerLogoImage,
+    "partnerUrl": "https://2squaredstudio.com/"
+  },
+  {
+    "id": 4,
+    "title": "Burrow Capital",
+    "category": "Websites",
+    "description": "A conversion-focused fintech website for a proprietary trading firm, designed to clearly explain funding programs, trader benefits, and evaluation models with a bold financial identity.",
+    "url": "https://burrowcapital.com/",
+    "image": burrowCapitalImage,
+    "tags": ["FinTech", "Proprietary Trading", "Forex", "Conversion Design", "Custom Website"],
+    "featured": false,
+    "comingSoon": false,
+    "partner": true,
+    "partnerLogo": partnerLogoImage,
+    "partnerUrl": "https://2squaredstudio.com/"
+  },
+  {
+    "id": 5,
+    "title": "Photiou Architects",
+    "category": "Websites",
+    "description": "A refined architectural portfolio website showcasing decades of experience in residential, commercial, and urban projects, emphasizing sustainability and strong visual storytelling.",
+    "url": "https://photiouarchitects.com/",
+    "image": photiouImage,
+    "tags": ["Architecture", "Portfolio Website", "Sustainable Design", "Visual Storytelling"],
+    "featured": false,
+    "comingSoon": false
+  },
+  {
+    "id": 6,
+    "title": "ATP Properties",
+    "category": "Websites",
+    "description": "A premium real estate development website highlighting luxury residential and commercial projects in Cyprus, focusing on architectural excellence and investment value.",
+    "url": "https://www.atp.properties/",
+    "image": atpImage,
+    "tags": ["Real Estate", "Property Development", "Luxury Projects", "Architecture", "Cyprus"],
+    "featured": false,
+    "comingSoon": false
+  },
+  {
+    "id": 7,
+    "title": "CP Law Firm",
+    "category": "Websites",
+    "description": "A professional law firm website presenting legal, corporate, tax, and advisory services with clarity, authority, and a strong corporate identity.",
+    "url": "https://cplawyers.com/",
+    "image": cplawyersImage,
+    "tags": ["Law Firm", "Corporate Law", "Legal Services", "Professional Website", "Cyprus"],
+    "featured": false,
+    "comingSoon": false
+  },
+  {
+    "id": 8,
+    "title": "Pittalis Strawberries",
+    "category": "Websites",
+    "description": "A custom availability tracking website displaying real-time strawberry fridge locations and stock levels across Limassol, supporting local agriculture through simple and functional UX.",
+    "url": "https://pittalisstrawberries.com/",
+    "image": pittalisImage,
+    "tags": ["Local Business", "Availability System", "Agriculture", "Custom Dashboard", "Cyprus"],
+    "featured": false,
+    "comingSoon": false
+  },
+  {
+    "id": 9,
+    "title": "Christakis Pavlou & Son",
+    "category": "Websites",
+    "description": "A service-oriented website for an automotive repair and maintenance center, designed to clearly present services and build trust through professional branding.",
+    "url": "https://www.autoservicecy.com/",
+    "image": cpkImage,
+    "tags": ["Automotive Services", "Local Business", "Maintenance", "Service Website"],
+    "featured": false,
+    "comingSoon": false
+  },
+  {
+    "id": 10,
+    "title": "Prothiereas Olive Oil",
+    "category": "Websites",
+    "description": "An elegant product-focused website showcasing premium Cypriot extra virgin olive oil, emphasizing tradition, sustainability, and brand heritage.",
+    "url": "https://prothiereas.com/en/",
+    "image": prothiereasImage,
+    "tags": ["Agriculture", "Olive Oil", "Product Branding", "E-commerce Ready", "Cyprus"],
+    "featured": false,
+    "comingSoon": false
+  },
+  {
+    "id": 11,
+    "title": "Anastasiou Architects",
+    "category": "Websites",
+    "description": "A UX/UI design project created in collaboration with design partners, focusing on clean layouts, strong typography, and immersive presentation of architectural work.",
+    "url": "https://anastasiou-architects.com/",
+    "image": anastasiouImage,
+    "tags": ["UX/UI Design", "Architecture Portfolio", "Design System", "Visual Identity"],
+    "featured": false,
+    "comingSoon": false,
+    "partner": false
+  },
+  {
+    "id": 12,
+    "title": "Email Signatures",
+    "category": "Email Signatures",
+    "description": "Custom-designed professional email signatures built for brand consistency, compatibility across email clients, and polished business communication.",
+    "url": "#",
+    "image": null,
+    "tags": ["Email Signatures", "Branding", "Business Identity", "Design Systems"],
+    "featured": false,
+    "comingSoon": true,
+    "partner": true,
+    "partnerLogo": partnerLogoImage,
+  },
+  {
+    "id": 13,
+    "title": "Email Solutions",
+    "category": "Email Solutions",
+    "description": "End-to-end business email solutions including setup, migration, and ongoing management, ensuring secure and reliable communication systems.",
+    "url": "#",
+    "image": null,
+    "tags": ["Email Setup", "Email Migration", "Business Infrastructure", "IT Solutions"],
+    "featured": false,
+    "comingSoon": true
+  }
 ];
 
 const PortfolioPage = () => {
@@ -232,11 +302,12 @@ const PortfolioPage = () => {
                             className="w-full h-full object-contain p-2 transition-transform duration-700 group-hover:scale-105"
                           />
                           {/* Coming Soon Badge */}
-                          {project.comingSoon && (
+                          {project.comingSoon && !project.partner && (
                             <div className="absolute top-3 right-3 px-3 py-1 bg-muted/90 backdrop-blur-sm rounded-full text-xs font-medium text-muted-foreground">
                               Coming Soon
                             </div>
                           )}
+                          
                           {/* Featured Badge */}
                           {project.featured && (
                             <div className="absolute top-3 left-3 px-3 py-1 bg-primary rounded-full text-xs font-semibold text-primary-foreground">
@@ -251,9 +322,20 @@ const PortfolioPage = () => {
                             <div className="absolute -bottom-1/2 -left-1/2 w-full h-full bg-accent/5 rounded-full blur-3xl" />
                           </div>
                           {/* Coming Soon Badge */}
-                          {project.comingSoon && (
+                          {project.comingSoon && !project.partner && (
                             <div className="absolute top-3 right-3 px-3 py-1 bg-muted/90 backdrop-blur-sm rounded-full text-xs font-medium text-muted-foreground">
                               Coming Soon
+                            </div>
+                          )}
+                          {/* Partner Badge with Logo */}
+                          {project.partner && project.partnerLogo && (
+                            <div className="absolute top-3 right-3 px-2 py-1.5 bg-accent/95 backdrop-blur-sm rounded-full flex items-center justify-center shadow-md">
+                              <img 
+                                src={project.partnerLogo} 
+                                alt="Partner" 
+                                className="h-5 w-auto object-contain"
+                                title="Created in partnership with 2Squared Studio"
+                              />
                             </div>
                           )}
                           {/* Featured Badge */}
@@ -300,12 +382,29 @@ const PortfolioPage = () => {
 
                         {/* Link */}
                         {!project.comingSoon && (
+                          <div className="d-flex align-items-center">
                           <div className="flex items-center gap-2 text-sm font-medium text-primary">
                             View Project
                             <ExternalLink
                               size={16}
                               className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
                             />
+                          </div>
+                          <div>
+                            {/* Partner Badge with Logo */}
+                          {project.partner && project.partnerLogo && (
+                            <Link to={project.partnerUrl} target="_blank" rel="noopener noreferrer">
+                            <div className="absolute bottom-3 right-3 px-2 py-1.5 bg-accent/95 backdrop-blur-sm rounded-full flex items-center justify-center shadow-md">
+                              <p className="text-xs font-medium mr-2">UX/UI Partner with</p> <img 
+                                src={project.partnerLogo} 
+                                alt="Partner" 
+                                className="h-5 w-auto object-contain"
+                                title="Created in partnership with 2Squared Studio"
+                              />
+                            </div>
+                          </Link>
+                          )}
+                          </div>
                           </div>
                         )}
                       </div>
