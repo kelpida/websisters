@@ -176,6 +176,7 @@ const projects = [
 const PortfolioPage = () => {
   const [activeCategory, setActiveCategory] = useState("All");
   const [hoveredId, setHoveredId] = useState<number | null>(null);
+  const [expandedTags, setExpandedTags] = useState<number | null>(null);
 
   const filteredProjects =
     activeCategory === "All"
@@ -365,18 +366,46 @@ const PortfolioPage = () => {
 
                         {/* Tags */}
                         <div className="flex flex-wrap gap-2 mb-4">
-                          {project.tags.slice(0, 3).map((tag) => (
-                            <span
-                              key={tag}
-                              className="px-2 py-1 rounded text-xs bg-secondary text-secondary-foreground"
+                          {expandedTags === project.id
+                            ? project.tags.map((tag) => (
+                                <span
+                                  key={tag}
+                                  className="px-2 py-1 rounded text-xs bg-secondary text-secondary-foreground"
+                                >
+                                  {tag}
+                                </span>
+                              ))
+                            : project.tags.slice(0, 3).map((tag) => (
+                                <span
+                                  key={tag}
+                                  className="px-2 py-1 rounded text-xs bg-secondary text-secondary-foreground"
+                                >
+                                  {tag}
+                                </span>
+                              ))}
+                          {project.tags.length > 3 && expandedTags !== project.id && (
+                            <button
+                              onClick={(e) => {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                setExpandedTags(project.id);
+                              }}
+                              className="px-2 py-1 rounded text-xs bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-colors cursor-pointer font-medium"
                             >
-                              {tag}
-                            </span>
-                          ))}
-                          {project.tags.length > 3 && (
-                            <span className="px-2 py-1 rounded text-xs bg-secondary text-secondary-foreground">
                               +{project.tags.length - 3}
-                            </span>
+                            </button>
+                          )}
+                          {expandedTags === project.id && project.tags.length > 3 && (
+                            <button
+                              onClick={(e) => {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                setExpandedTags(null);
+                              }}
+                              className="px-2 py-1 rounded text-xs bg-primary text-primary-foreground hover:bg-primary/80 transition-colors cursor-pointer font-medium"
+                            >
+                              Show Less
+                            </button>
                           )}
                         </div>
 
