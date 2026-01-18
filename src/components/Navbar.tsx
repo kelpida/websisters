@@ -26,7 +26,6 @@ const Navbar = () => {
     { icon: Linkedin, href: "#", label: "LinkedIn" },
     { icon: Facebook, href: "#", label: "Facebook" },
     { icon: Instagram, href: "#", label: "Instagram" },
-    { icon: Twitter, href: "#", label: "Twitter" },
   ];
 
   const contactInfo = {
@@ -167,19 +166,20 @@ const Navbar = () => {
 
               {/* Social Links */}
               <div className="space-y-3">
-                <h3 className="font-semibold text-foreground">Follow Us</h3>
+                <h3 className="font-semibold text-foreground">Follow Us | Coming soon</h3>
                 <div className="flex gap-3">
                   {socialLinks.map((social) => {
                     const IconComponent = social.icon;
                     return (
-                      <a
+                      <button
                         key={social.label}
-                        href={social.href}
-                        className="p-2 rounded-lg bg-muted hover:bg-accent transition-colors"
+                        onClick={(e) => e.preventDefault()}
+                        className="p-2 rounded-lg bg-muted hover:bg-muted transition-colors cursor-not-allowed opacity-60"
                         aria-label={social.label}
+                        title="Coming Soon"
                       >
                         <IconComponent size={20} />
-                      </a>
+                      </button>
                     );
                   })}
                 </div>
@@ -220,9 +220,11 @@ const Navbar = () => {
             </div>
 
             {/* CTA Button */}
+                <a href="#contact">
             <Button variant="hero" size="lg" className="w-full">
               {t("nav.getInTouch")}
             </Button>
+            </a>
           </SheetContent>
         </Sheet>
       </div>

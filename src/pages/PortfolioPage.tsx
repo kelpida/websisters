@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ExternalLink, ArrowLeft, Filter } from "lucide-react";
+import { ExternalLink, ArrowLeft, Filter, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import portfolioImage from "@/assets/portfolio-everafterlink.png";
@@ -15,9 +15,10 @@ import anastasiouImage from "@/assets/anastasiou-architects.png";
 import malactosImage from "@/assets/malactosinsurance.png";
 import burrowCapitalImage from "@/assets/burrowcapital.svg";
 import partnerLogoImage from "@/assets/2squaredstudio.png";
+import thebestpropoNewsletterImage from "@/assets/newsletter.png";
 import SEO from "@/components/SEO";
 
-const categories = ["All", "Websites", "Email Signatures", "Email Solutions"];
+const categories = ["All", "Websites", "Newsletters", "Email Signatures", "Email Solutions"];
 
 const projects = [
   {
@@ -147,8 +148,22 @@ const projects = [
     "comingSoon": false,
     "partner": false
   },
-  {
+    {
     "id": 12,
+    "title": "The BestProp Newsletter",
+    "category": "Newsletters",
+    "description": "A professionally designed quarterly newsletter featuring trading insights, market analysis, and community highlights. Delivers valuable content directly to subscribers with a clean, conversion-focused design.",
+    "url": "#",
+    "image": bestpropImage,
+    "popupImage": thebestpropoNewsletterImage,
+    "tags": ["Newsletter Design", "Email Marketing", "Trading Insights", "FinTech", "Content Strategy"],
+    "featured": false,
+    "comingSoon": true,
+    "partner": true,
+    "partnerLogo": partnerLogoImage,
+  },
+  {
+    "id": 13,
     "title": "Email Signatures",
     "category": "Email Signatures",
     "description": "Custom-designed professional email signatures built for brand consistency, compatibility across email clients, and polished business communication.",
@@ -157,11 +172,11 @@ const projects = [
     "tags": ["Email Signatures", "Branding", "Business Identity", "Design Systems"],
     "featured": false,
     "comingSoon": true,
-    "partner": true,
+    "partner": false,
     "partnerLogo": partnerLogoImage,
   },
   {
-    "id": 13,
+    "id": 14,
     "title": "Email Solutions",
     "category": "Email Solutions",
     "description": "End-to-end business email solutions including setup, migration, and ongoing management, ensuring secure and reliable communication systems.",
@@ -170,13 +185,15 @@ const projects = [
     "tags": ["Email Setup", "Email Migration", "Business Infrastructure", "IT Solutions"],
     "featured": false,
     "comingSoon": true
-  }
+  },
+
 ];
 
 const PortfolioPage = () => {
   const [activeCategory, setActiveCategory] = useState("All");
   const [hoveredId, setHoveredId] = useState<number | null>(null);
   const [expandedTags, setExpandedTags] = useState<number | null>(null);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const filteredProjects =
     activeCategory === "All"
@@ -285,7 +302,13 @@ const PortfolioPage = () => {
                     href={project.url}
                     target={project.url.startsWith("http") ? "_blank" : undefined}
                     rel={project.url.startsWith("http") ? "noopener noreferrer" : undefined}
-                    className="block h-full"
+                    onClick={(e) => {
+                      if ((project.category === "Email Signatures" || project.category === "Newsletters") && project.popupImage) {
+                        e.preventDefault();
+                        setSelectedImage(project.popupImage);
+                      }
+                    }}
+                    className="block"
                   >
                     <div
                       className={`relative overflow-hidden rounded-2xl border border-border/50 bg-card transition-all duration-500 flex flex-col h-full ${
@@ -296,7 +319,7 @@ const PortfolioPage = () => {
                     >
                       {/* Image Section */}
                       {project.image ? (
-                        <div className={`relative overflow-hidden bg-muted/30 flex items-center justify-center ${project.featured ? "h-48 md:h-56" : "h-40"}`}>
+                        <div className={`relative overflow-hidden bg-muted/30 flex items-center justify-center project-image ${project.featured ? "h-48 md:h-56" : "h-40"}`} style={{ maxWidth: "230px", margin: "0 auto" }}>
                           <img
                             src={project.image}
                             alt={project.title}
@@ -478,6 +501,48 @@ const PortfolioPage = () => {
           </motion.div>
         </div>
       </section>
+
+      {/* Image Popup Modal */}
+      <AnimatePresence>
+        {selectedImage && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setSelectedImage(null)}
+              className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50"
+            />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              transition={{ duration: 0.3 }}
+              className="fixed inset-0 z-50 flex items-center justify-center p-4"
+              onClick={() => setSelectedImage(null)}
+            >
+              <div
+                className="relative max-w-2xl w-full bg-card rounded-2xl overflow-hidden shadow-2xl p-6"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <button
+                  onClick={() => setSelectedImage(null)}
+                  className="absolute top-4 right-4 z-10 p-2 rounded-full bg-background/80 backdrop-blur-sm hover:bg-background transition-colors"
+                  aria-label="Close modal"
+                >
+                  <X size={24} className="text-foreground" />
+                </button>
+                <img
+                  src={selectedImage}
+                  alt="Newsletter Preview"
+                  className="w-full h-full object-contain p-2 transition-transform duration-700 group-hover:scale-105"
+                  style={{ maxWidth: "230px", margin: "0 auto", display: "block" }}
+                />
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </div>
     </>
   );

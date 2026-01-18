@@ -46,8 +46,8 @@ const getServices = (t: any): Service[] => [
     key: "hostingMaintenance",
     isFeatured: true,
     samples: [
-      { title: "Managed WordPress", type: "Hosting Plan", url: "#" },
-      { title: "Cloud Hosting", type: "Cloud Infrastructure", url: "#" },
+      { title: "Managed WordPress", type: "Hosting Plan", url: "https://www.bluehost.com/" },
+      { title: "Cloud Hosting", type: "Cloud Infrastructure", url: "https://aws.amazon.com/lightsail/" },
     ]
   },
   {
@@ -74,8 +74,7 @@ const getServices = (t: any): Service[] => [
     features: t("services.emailSignaturesNewsletters.features", { returnObjects: true }),
     key: "emailSignaturesNewsletters",
     samples: [
-      { title: "Corporate Signature", type: "Professional", url: "#" },
-      { title: "Newsletter Template", type: "Email Campaign", url: "#" },
+     
     ],
     isPartnerService: true,
     partners: [
@@ -353,9 +352,10 @@ const Services = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.4 }}
                 >
+                  {selectedService.samples.length > 0 && (
                   <h4 className="font-display text-lg font-semibold text-foreground mb-4">
                     {t("services.sampleWork") || "Sample Work"}
-                  </h4>
+                  </h4>)}
                   <div className="grid sm:grid-cols-2 gap-4">
                     {selectedService.samples.map((sample, i) => (
                       <motion.a

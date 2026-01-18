@@ -96,32 +96,29 @@ const Contact = () => {
 
             {/* Social Media Links */}
             <div className="border-t border-border/50 pt-6">
-              <p className="text-sm text-muted-foreground text-center mb-4">{t("contact.followUs")}</p>
+              <p className="text-sm text-muted-foreground text-center mb-4">{t("contact.followUs")} | Coming Soon</p>
               <div className="flex justify-center gap-4">
-                <a 
-                  href="https://instagram.com/#" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="w-12 h-12 rounded-xl bg-card border border-border/50 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all duration-300 text-muted-foreground"
+                <button
+                  onClick={(e) => e.preventDefault()}
+                  className="w-12 h-12 rounded-xl bg-card border border-border/50 flex items-center justify-center hover:bg-muted transition-all duration-300 text-muted-foreground cursor-not-allowed opacity-60" 
+                  title="Coming Soon"
                 >
                   <Instagram size={22} />
-                </a>
-                <a 
-                  href="https://facebook.com/#" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="w-12 h-12 rounded-xl bg-card border border-border/50 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all duration-300 text-muted-foreground"
+                </button>
+                <button
+                  onClick={(e) => e.preventDefault()}
+                  className="w-12 h-12 rounded-xl bg-card border border-border/50 flex items-center justify-center hover:bg-muted transition-all duration-300 text-muted-foreground cursor-not-allowed opacity-60" 
+                  title="Coming Soon"
                 >
                   <Facebook size={22} />
-                </a>
-                <a 
-                  href="https://linkedin.com/#" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="w-12 h-12 rounded-xl bg-card border border-border/50 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all duration-300 text-muted-foreground"
+                </button>
+                <button
+                  onClick={(e) => e.preventDefault()}
+                  className="w-12 h-12 rounded-xl bg-card border border-border/50 flex items-center justify-center hover:bg-muted transition-all duration-300 text-muted-foreground cursor-not-allowed opacity-60" 
+                  title="Coming Soon"
                 >
                   <Linkedin size={22} />
-                </a>
+                </button>
               </div>
             </div>
           </div>
