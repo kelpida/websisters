@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Menu, X, Globe, Mail, Phone, Linkedin, Facebook, Instagram, Twitter, Link } from "lucide-react";
+import { Menu, X, Globe, Mail, Linkedin, Facebook, Instagram, Twitter, Link } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import Logo from "./Logo";
 import { Button } from "./ui/button";
@@ -30,7 +30,6 @@ const Navbar = () => {
 
   const contactInfo = {
     email: "info@websisters.com.cy",
-    phone: "+357 22 123 456",
   };
 
   const navLinks = [
@@ -43,6 +42,7 @@ const Navbar = () => {
   const handleLanguageChange = (lang: string) => {
     i18n.changeLanguage(lang);
     localStorage.setItem("language", lang);
+    setIsOpen(false);
   };
 
   const currentLanguage = i18n.language === "gr" ? "ΕΛ" : "EN";
@@ -119,7 +119,7 @@ const Navbar = () => {
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
           <SheetContent side="right" className="w-[300px] sm:w-[350px] flex flex-col">
             <SheetHeader>
-              <SheetTitle>Menu</SheetTitle>
+              <SheetTitle>{t("nav.menu")}</SheetTitle>
             </SheetHeader>
 
             <div className="flex-1 overflow-y-auto py-6 space-y-6">
@@ -142,7 +142,7 @@ const Navbar = () => {
 
               {/* Contact Information */}
               <div className="space-y-3">
-                <h3 className="font-semibold text-foreground">Contact</h3>
+                <h3 className="font-semibold text-foreground">{t("nav.contact")}</h3>
                 <div className="space-y-2">
                   <a
                     href={`mailto:${contactInfo.email}`}
@@ -150,13 +150,6 @@ const Navbar = () => {
                   >
                     <Mail size={18} />
                     <span className="text-sm break-all">{contactInfo.email}</span>
-                  </a>
-                  <a
-                    href={`tel:${contactInfo.phone}`}
-                    className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    <Phone size={18} />
-                    <span className="text-sm">{contactInfo.phone}</span>
                   </a>
                 </div>
               </div>
@@ -166,7 +159,7 @@ const Navbar = () => {
 
               {/* Social Links */}
               <div className="space-y-3">
-                <h3 className="font-semibold text-foreground">Follow Us | Coming soon</h3>
+                <h3 className="font-semibold text-foreground">{t("nav.followUs")} | {t("portfolio.comingSoon")}</h3>
                 <div className="flex gap-3">
                   {socialLinks.map((social) => {
                     const IconComponent = social.icon;
@@ -201,6 +194,7 @@ const Navbar = () => {
                     onClick={() => {
                       i18n.changeLanguage("en");
                       localStorage.setItem("language", "en");
+                      setIsOpen(false);
                     }}
                   >
                     English
@@ -211,6 +205,7 @@ const Navbar = () => {
                     onClick={() => {
                       i18n.changeLanguage("gr");
                       localStorage.setItem("language", "gr");
+                      setIsOpen(false);
                     }}
                   >
                     Ελληνικά
@@ -220,7 +215,7 @@ const Navbar = () => {
             </div>
 
             {/* CTA Button */}
-                <a href="#contact">
+                <a href="#contact" onClick={() => setIsOpen(false)}>
             <Button variant="hero" size="lg" className="w-full">
               {t("nav.getInTouch")}
             </Button>

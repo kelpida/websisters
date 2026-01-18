@@ -63,7 +63,7 @@ const Contact = () => {
                 </div>
               </div>
               
-              <div className="flex items-center gap-4">
+              {/* <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-xl bg-gradient-primary flex items-center justify-center flex-shrink-0">
                   <Phone size={20} className="text-primary-foreground" />
                 </div>
@@ -91,7 +91,7 @@ const Contact = () => {
                     #
                   </a>
                 </div>
-              </div>
+              </div> */}
             </div>
 
             {/* Social Media Links */}

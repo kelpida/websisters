@@ -46,7 +46,7 @@ const Testimonials = () => {
       role: "Architect Engineer, Anastasiou Architects",
       image: null,
       rating: 5,
-      text: "Working with WebSisters and their design partners was fantastic. They created a website that truly reflects the creative quality of our work. The UX/UI is intuitive and the design is elegant.",
+      text: "Working with WebSisters and their design partners was fantastic. They created a website that truly reflects the creative quality of our work. The UI/UX is intuitive and the design is elegant.",
       project: "Anastasiou Architects"
     },
     {

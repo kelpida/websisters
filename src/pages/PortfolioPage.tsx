@@ -140,10 +140,10 @@ const projects = [
     "id": 11,
     "title": "Anastasiou Architects",
     "category": "Websites",
-    "description": "A UX/UI design project created in collaboration with design partners, focusing on clean layouts, strong typography, and immersive presentation of architectural work.",
+    "description": "A UI/UX design project created in collaboration with design partners, focusing on clean layouts, strong typography, and immersive presentation of architectural work.",
     "url": "https://anastasiou-architects.com/",
     "image": anastasiouImage,
-    "tags": ["UX/UI Design", "Architecture Portfolio", "Design System", "Visual Identity"],
+    "tags": ["UI/UX Design", "Architecture Portfolio", "Design System", "Visual Identity"],
     "featured": false,
     "comingSoon": false,
     "partner": false
@@ -447,7 +447,7 @@ const PortfolioPage = () => {
                           {project.partner && project.partnerLogo && (
                             <Link to={project.partnerUrl} target="_blank" rel="noopener noreferrer">
                             <div className="absolute bottom-3 right-3 px-2 py-1.5 bg-accent/95 backdrop-blur-sm rounded-full flex items-center justify-center shadow-md">
-                              <p className="text-xs font-medium mr-1">UX/UI Partner with</p> <img 
+                              <p className="text-xs font-medium mr-1">UI/UX Partner with</p> <img 
                                 src={project.partnerLogo} 
                                 alt="Partner" 
                                 className="h-5 w-auto object-contain"
