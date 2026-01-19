@@ -4,7 +4,7 @@ import { ExternalLink, ArrowLeft, Filter, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import portfolioImage from "@/assets/portfolio-everafterlink.png";
-import bestpropImage from "@/assets/thebestprop.svg";
+import bestpropImage from "@/assets/thebestprop.png";
 import photiouImage from "@/assets/photiou.png";
 import atpImage from "@/assets/portfolio-atp.webp";
 import cplawyersImage from "@/assets/portfolio-cplawyers.webp";
