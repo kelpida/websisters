@@ -447,12 +447,7 @@ const PortfolioPage = () => {
                           {project.partner && project.partnerLogo && (
                             <Link to={project.partnerUrl} target="_blank" rel="noopener noreferrer">
                             <div className="absolute bottom-3 right-3 px-2 py-1.5 bg-accent/95 backdrop-blur-sm rounded-full flex items-center justify-center shadow-md">
-                              <p className="text-xs font-medium mr-1">UI / UX Partner with</p> <img 
-                                src={project.partnerLogo} 
-                                alt="Partner" 
-                                className="h-5 w-auto object-contain"
-                                title="Created in partnership with 2Squared Studio"
-                              />
+                              <p className="text-xs font-medium mr-1">Partner UI / UX</p>
                             </div>
                           </Link>
                           )}
